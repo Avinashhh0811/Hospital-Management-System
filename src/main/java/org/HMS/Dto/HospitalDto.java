@@ -3,9 +3,14 @@ package org.HMS.Dto;
 public class HospitalDto {
 
     private String hospitalName;
+
     private String address;
+
     private String city;
+
     private String contactNumber;
+
+    private Long adminId;
 
     public HospitalDto() {
     }
@@ -40,5 +45,13 @@ public class HospitalDto {
 
     public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
+    }
+
+    public Long getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(Long adminId) {
+        this.adminId = adminId;
     }
 }

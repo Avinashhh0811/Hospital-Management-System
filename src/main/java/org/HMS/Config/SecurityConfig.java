@@ -4,26 +4,42 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
 
+    // Password Encoder
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
+
         return new BCryptPasswordEncoder();
     }
 
+    // Security Filter
     @Bean
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http) throws Exception {
 
         http
+
+                // Disable CSRF
                 .csrf(csrf -> csrf.disable())
+
+                // API Authorization
                 .authorizeHttpRequests(auth -> auth
+
+                        // Public APIs
+                        .requestMatchers(
+                                "/auth/**"
+                        ).permitAll()
+
+                        // Everything else temporarily open
                         .anyRequest().permitAll()
                 )
+
+                // Basic Auth
                 .httpBasic(Customizer.withDefaults());
 
         return http.build();

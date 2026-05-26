@@ -1,8 +1,5 @@
 package org.HMS.Service;
 
 import org.HMS.Dto.HospitalDto;
-
-public interface HospitalService {
-
-    String addHospital(HospitalDto dto);
-}
+import org.HMS.Entity.Hospital;
+import org.HMS.Entity.User;

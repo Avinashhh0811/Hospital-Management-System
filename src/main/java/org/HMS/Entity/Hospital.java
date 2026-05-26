@@ -18,6 +18,10 @@ public class Hospital {
 
     private String contactNumber;
 
+    @OneToOne
+    @JoinColumn(name = "admin_id")
+    private User admin;
+
     public Hospital() {
     }
 
@@ -59,5 +63,13 @@ public class Hospital {
 
     public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
+    }
+
+    public User getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(User admin) {
+        this.admin = admin;
     }
 }
