@@ -1,7 +1,12 @@
 import { useState } from "react";
+
+import { useNavigate } from "react-router-dom";
+
 import API from "../services/api";
 
 function Login() {
+
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
 
@@ -21,77 +26,81 @@ function Login() {
                 }
             );
 
-            console.log(response.data);
+            localStorage.setItem(
+                "token",
+                response.data
+            );
 
             alert("Login Successful");
+
+            navigate("/dashboard");
 
         } catch(error) {
 
             console.log(error);
 
-            alert("Login Failed");
+            alert("Invalid Credentials");
         }
     };
 
     return (
 
         <div style={{
+            minHeight: "100vh",
+            background: "#020617",
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
-            height: "100vh",
-            backgroundColor: "#f2f2f2"
+            alignItems: "center"
         }}>
 
             <form
                 onSubmit={handleLogin}
                 style={{
+                    width: "100%",
+                    maxWidth: "400px",
                     display: "flex",
                     flexDirection: "column",
-                    width: "320px",
-                    gap: "15px",
-                    padding: "30px",
-                    background: "white",
-                    borderRadius: "10px",
-                    boxShadow: "0px 0px 10px gray"
+                    gap: "20px",
+                    background: "rgba(255,255,255,0.05)",
+                    padding: "40px",
+                    borderRadius: "20px"
                 }}>
 
-                <h1 style={{ textAlign: "center" }}>
+                <h1 style={{
+                    color: "white",
+                    textAlign: "center"
+                }}>
+
                     HMS Login
+
                 </h1>
 
                 <input
                     type="email"
-                    placeholder="Enter Email"
+                    placeholder="Email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    style={{
-                        padding: "10px",
-                        fontSize: "16px"
-                    }}
+                    onChange={(e)=>
+                        setEmail(e.target.value)}
                 />
 
                 <input
                     type="password"
-                    placeholder="Enter Password"
+                    placeholder="Password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    style={{
-                        padding: "10px",
-                        fontSize: "16px"
-                    }}
+                    onChange={(e)=>
+                        setPassword(e.target.value)}
                 />
 
                 <button
                     type="submit"
                     style={{
-                        padding: "12px",
-                        background: "blue",
+                        padding: "15px",
+                        background: "#2563eb",
                         color: "white",
                         border: "none",
-                        borderRadius: "5px",
+                        borderRadius: "10px",
                         cursor: "pointer",
-                        fontSize: "16px"
+                        fontSize: "18px"
                     }}>
 
                     Login

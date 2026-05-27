@@ -8,49 +8,85 @@ function Dashboard() {
 
         localStorage.removeItem("token");
 
-        alert("Logout Successful");
-
-        navigate("/");
+        navigate("/login");
     };
 
     return (
 
-        <div
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100vh",
-                gap: "20px"
-            }}
-        >
+        <div style={{
+            minHeight: "100vh",
+            background: "#020617",
+            color: "white",
+            padding: "40px"
+        }}>
 
-            <h1>
+            <h1 style={{
+                textAlign: "center",
+                marginBottom: "50px"
+            }}>
 
-                Welcome To HMS Dashboard
+                HMS Dashboard 🏥
 
             </h1>
 
-            <button
-                onClick={handleLogout}
-                style={{
-                    padding: "12px 20px",
-                    background: "red",
-                    color: "white",
-                    border: "none",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                    fontSize: "16px"
-                }}
-            >
+            <div style={{
+                display: "flex",
+                justifyContent: "center",
+                gap: "20px",
+                flexWrap: "wrap"
+            }}>
 
-                Logout
+                <button
+                    onClick={() => navigate("/patients")}
+                    style={cardStyle}>
 
-            </button>
+                    Patients
+
+                </button>
+
+                <button
+                    onClick={() => navigate("/doctors")}
+                    style={cardStyle}>
+
+                    Doctors
+
+                </button>
+
+                <button
+                    onClick={() => navigate("/appointments")}
+                    style={cardStyle}>
+
+                    Appointments
+
+                </button>
+
+                <button
+                    onClick={handleLogout}
+                    style={{
+                        ...cardStyle,
+                        background: "red"
+                    }}>
+
+                    Logout
+
+                </button>
+
+            </div>
 
         </div>
     );
 }
+
+const cardStyle = {
+
+    width: "200px",
+    height: "120px",
+    border: "none",
+    borderRadius: "15px",
+    background: "#2563eb",
+    color: "white",
+    fontSize: "20px",
+    cursor: "pointer"
+};
 
 export default Dashboard;
