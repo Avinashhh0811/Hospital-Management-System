@@ -12,6 +12,8 @@ public class DoctorDto {
 
     private Long hospitalId;
 
+    private Long userId;
+
     public DoctorDto() {
     }
 
@@ -53,5 +55,13 @@ public class DoctorDto {
 
     public void setHospitalId(Long hospitalId) {
         this.hospitalId = hospitalId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

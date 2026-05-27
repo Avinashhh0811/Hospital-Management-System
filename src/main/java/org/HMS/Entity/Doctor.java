@@ -22,6 +22,10 @@ public class Doctor {
     @JoinColumn(name = "hospital_id")
     private Hospital hospital;
 
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Doctor() {
     }
 
@@ -71,5 +75,13 @@ public class Doctor {
 
     public void setHospital(Hospital hospital) {
         this.hospital = hospital;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

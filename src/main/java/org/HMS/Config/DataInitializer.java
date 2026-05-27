@@ -30,6 +30,14 @@ public class DataInitializer {
                 roleRepository.save(
                         new Role("ROLE_PATIENT"));
             }
+
+            if(roleRepository
+                    .findByRoleName("ROLE_DOCTOR")
+                    .isEmpty()) {
+
+                roleRepository.save(
+                        new Role("ROLE_DOCTOR"));
+            }
         };
     }
 }

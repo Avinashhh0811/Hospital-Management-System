@@ -24,22 +24,21 @@ public class SecurityConfig {
 
         http
 
-                // Disable CSRF
                 .csrf(csrf -> csrf.disable())
 
-                // API Authorization
+
                 .authorizeHttpRequests(auth -> auth
 
-                        // Public APIs
+
                         .requestMatchers(
                                 "/auth/**"
                         ).permitAll()
 
-                        // Everything else temporarily open
+
                         .anyRequest().permitAll()
                 )
 
-                // Basic Auth
+
                 .httpBasic(Customizer.withDefaults());
 
         return http.build();
