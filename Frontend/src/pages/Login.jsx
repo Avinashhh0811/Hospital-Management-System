@@ -1,12 +1,7 @@
 import { useState } from "react";
-
-import { useNavigate } from "react-router-dom";
-
-import API from "../services/api.js";
+import API from "../services/api";
 
 function Login() {
-
-    const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
 
@@ -28,14 +23,7 @@ function Login() {
 
             console.log(response.data);
 
-            localStorage.setItem(
-                "token",
-                response.data
-            );
-
             alert("Login Successful");
-
-            navigate("/dashboard");
 
         } catch(error) {
 
@@ -68,10 +56,7 @@ function Login() {
                     boxShadow: "0px 0px 10px gray"
                 }}>
 
-                <h1
-                    style={{
-                        textAlign: "center"
-                    }}>
+                <h1 style={{ textAlign: "center" }}>
                     HMS Login
                 </h1>
 
@@ -79,8 +64,7 @@ function Login() {
                     type="email"
                     placeholder="Enter Email"
                     value={email}
-                    onChange={(e)=>
-                        setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     style={{
                         padding: "10px",
                         fontSize: "16px"
@@ -91,8 +75,7 @@ function Login() {
                     type="password"
                     placeholder="Enter Password"
                     value={password}
-                    onChange={(e)=>
-                        setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                     style={{
                         padding: "10px",
                         fontSize: "16px"
@@ -106,9 +89,9 @@ function Login() {
                         background: "blue",
                         color: "white",
                         border: "none",
-                        fontSize: "16px",
+                        borderRadius: "5px",
                         cursor: "pointer",
-                        borderRadius: "5px"
+                        fontSize: "16px"
                     }}>
 
                     Login
