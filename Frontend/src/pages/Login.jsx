@@ -10,32 +10,44 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
+  const [email, setEmail] =
+    useState("");
 
-  const [password, setPassword] = useState("");
+  const [password, setPassword] =
+    useState("");
 
   const handleLogin = async () => {
 
     try {
 
-      const response = await axios.post(
-
-        "http://localhost:8080/auth/login",
-
-        {
-          email: email,
-          password: password
-        }
-
-      );
+      const response =
+        await axios.post(
+          "http://localhost:8080/api/auth/login",
+          {
+            email,
+            password
+          }
+        );
 
       console.log(response.data);
 
-      alert("Login Successful 😎");
-
       localStorage.setItem(
         "token",
-        response.data
+        response.data.token
+      );
+
+      localStorage.setItem(
+        "email",
+        response.data.email
+      );
+
+      localStorage.setItem(
+        "role",
+        response.data.role
+      );
+
+      alert(
+        "Login Successful 😎"
       );
 
       navigate("/dashboard");
@@ -46,7 +58,9 @@ function Login() {
 
       console.log(error);
 
-      alert("Invalid Credentials ❌");
+      alert(
+        "Invalid Credentials ❌"
+      );
     }
   };
 
@@ -60,7 +74,9 @@ function Login() {
 
         <div className="loginCard">
 
-          <h1>HMS Portal</h1>
+          <h1>
+            HMS Portal
+          </h1>
 
           <p>
             Smart Hospital Management System
@@ -84,9 +100,35 @@ function Login() {
             }
           />
 
-          <button onClick={handleLogin}>
+          <button
+            onClick={handleLogin}
+          >
             Login
           </button>
+
+          <p
+            className="forgotText"
+            onClick={()=>
+              navigate("/forgot-password")
+            }
+          >
+            Forgot Password?
+          </p>
+
+          <p className="registerText">
+
+            New User?
+
+            <span
+              onClick={()=>
+                navigate("/register")
+              }
+            >
+              {" "}
+              Register Here
+            </span>
+
+          </p>
 
         </div>
 

@@ -2,17 +2,41 @@ package org.HMS.Dto;
 
 public class AppointmentDto {
 
+    private Long doctorId;
+
+    private Long patientId;
+
+    private Long hospitalId;
+
     private String appointmentDate;
 
     private String appointmentTime;
 
-    private Long patientId;
-
-    private Long doctorId;
-
-    private Long hospitalId;
-
     public AppointmentDto() {
+    }
+
+    public Long getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(Long doctorId) {
+        this.doctorId = doctorId;
+    }
+
+    public Long getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(Long patientId) {
+        this.patientId = patientId;
+    }
+
+    public Long getHospitalId() {
+        return hospitalId;
+    }
+
+    public void setHospitalId(Long hospitalId) {
+        this.hospitalId = hospitalId;
     }
 
     public String getAppointmentDate() {
@@ -29,29 +53,5 @@ public class AppointmentDto {
 
     public void setAppointmentTime(String appointmentTime) {
         this.appointmentTime = appointmentTime;
-    }
-
-    public Long getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(Long patientId) {
-        this.patientId = patientId;
-    }
-
-    public Long getDoctorId() {
-        return doctorId;
-    }
-
-    public void setDoctorId(Long doctorId) {
-        this.doctorId = doctorId;
-    }
-
-    public Long getHospitalId() {
-        return hospitalId;
-    }
-
-    public void setHospitalId(Long hospitalId) {
-        this.hospitalId = hospitalId;
     }
 }

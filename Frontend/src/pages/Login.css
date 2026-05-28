@@ -195,3 +195,76 @@
   box-shadow:
   0 0 25px rgba(59,130,246,0.6);
 }
+
+.registerText{
+
+  margin-top: 22px;
+
+  text-align: center;
+
+  font-size: 17px;
+
+  color: #d1d5db;
+}
+
+.registerText span{
+
+  color: #60a5fa;
+
+  margin-left: 8px;
+
+  cursor: pointer;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.registerText span:hover{
+
+  color: #a855f7;
+}
+.forgotText{
+
+  margin-top: 18px;
+
+  color: #9db4ff;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.forgotText:hover{
+
+  color: white;
+
+  text-decoration: underline;
+}
+
+.registerText{
+
+  margin-top: 20px;
+
+  color: #cbd5e1;
+
+  font-size: 15px;
+}
+
+.registerText span{
+
+  color: #60a5fa;
+
+  cursor: pointer;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.registerText span:hover{
+
+  color: white;
+
+  text-decoration: underline;
+}

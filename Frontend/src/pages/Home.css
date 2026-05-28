@@ -1,8 +1,7 @@
 .home{
-  height:100vh;
-  width:100%;
+  min-height:100vh;
   background:
-  linear-gradient(rgba(0,0,0,0.6),
+  linear-gradient(rgba(0,0,0,0.5),
   rgba(0,0,0,0.7)),
   url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3");
 
@@ -12,6 +11,8 @@
   display:flex;
   justify-content:center;
   align-items:center;
+
+  padding:20px;
 }
 
 .overlay{
@@ -21,65 +22,97 @@
   align-items:center;
 }
 
-.card{
-  width:420px;
-  padding:40px;
+.home-card{
+
+  width:100%;
+  max-width:1200px;
 
   background:rgba(255,255,255,0.08);
 
-  border:1px solid rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.15);
 
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(15px);
 
-  border-radius:25px;
+  border-radius:30px;
+
+  padding:60px 40px;
 
   text-align:center;
 
-  box-shadow:0 0 40px rgba(0,0,0,0.4);
+  box-shadow:0 8px 40px rgba(0,0,0,0.4);
 }
 
-.card h1{
+.home-card h1{
+
   color:white;
-  font-size:48px;
+  font-size:70px;
   margin-bottom:10px;
 }
 
-.card p{
+.home-card p{
+
   color:#ddd;
-  margin-bottom:35px;
+  font-size:24px;
+  margin-bottom:50px;
 }
 
-.card button{
-  width:100%;
-  padding:15px;
-  margin-top:18px;
+.portal-grid{
 
-  border:none;
-  border-radius:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 
-  font-size:18px;
-  font-weight:bold;
+  gap:30px;
+}
+
+.portal{
+
+  padding:40px;
+
+  border-radius:25px;
 
   cursor:pointer;
 
   transition:0.3s;
-}
 
-.loginBtn{
-  background:#2563eb;
   color:white;
 }
 
-.registerBtn{
-  background:#16a34a;
-  color:white;
+.portal:hover{
+
+  transform:translateY(-8px);
 }
 
-.adminBtn{
-  background:#9333ea;
-  color:white;
+.patient{
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
 }
 
-.card button:hover{
-  transform:scale(1.03);
+.register{
+  background:linear-gradient(135deg,#16a34a,#15803d);
+}
+
+.admin{
+  background:linear-gradient(135deg,#9333ea,#7e22ce);
+}
+
+.icon{
+
+  font-size:60px;
+  margin-bottom:20px;
+}
+
+.portal h2{
+
+  font-size:28px;
+  font-weight:600;
+}
+
+@media(max-width:768px){
+
+  .home-card h1{
+    font-size:45px;
+  }
+
+  .home-card p{
+    font-size:18px;
+  }
 }

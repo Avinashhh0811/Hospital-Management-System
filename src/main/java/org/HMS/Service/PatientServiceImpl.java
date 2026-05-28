@@ -1,10 +1,13 @@
 package org.HMS.Service;
 
 import org.HMS.Dto.PatientDto;
+
 import org.HMS.Entity.Patient;
 import org.HMS.Entity.User;
+
 import org.HMS.Repository.PatientRepository;
 import org.HMS.Repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,14 +31,21 @@ public class PatientServiceImpl
 
         Patient patient = new Patient();
 
-        patient.setPatientName(dto.getPatientName());
-        patient.setAge(dto.getAge());
-        patient.setGender(dto.getGender());
-        patient.setBloodGroup(dto.getBloodGroup());
-        patient.setAddress(dto.getAddress());
+        patient.setFullName(dto.getFullName());
+
+        patient.setEmail(dto.getEmail());
+
         patient.setPhone(dto.getPhone());
 
-        patient.setUser(user);
+        patient.setAge(dto.getAge());
+
+        patient.setGender(dto.getGender());
+
+        patient.setBloodGroup(dto.getBloodGroup());
+
+        patient.setAddress(dto.getAddress());
+
+
 
         patientRepository.save(patient);
 

@@ -1,16 +1,31 @@
+import React from "react";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  FaUserInjured,
+  FaHospital,
+  FaUserMd
+} from "react-icons/fa";
 
-function Home() {
+const Home = () => {
 
   const navigate = useNavigate();
 
   return (
+
     <div className="home">
 
       <div className="overlay">
 
-        <div className="card">
+        <motion.div
+
+          initial={{ opacity:0,y:40 }}
+          animate={{ opacity:1,y:0 }}
+          transition={{ duration:0.6 }}
+
+          className="home-card"
+        >
 
           <h1>🏥 HMS Portal</h1>
 
@@ -18,33 +33,52 @@ function Home() {
             Smart Hospital Management System
           </p>
 
-          <button
-            className="loginBtn"
-            onClick={() => navigate("/login")}
-          >
-            Patient Login
-          </button>
+          <div className="portal-grid">
 
-          <button
-            className="registerBtn"
-            onClick={() => navigate("/register")}
-          >
-            Patient Registration
-          </button>
+            <motion.div
+              whileHover={{ scale:1.03 }}
+              className="portal patient"
+              onClick={() => navigate("/login")}
+            >
 
-          <button
-            className="adminBtn"
-            onClick={() => navigate("/login")}
-          >
-            Hospital/Admin Login
-          </button>
+              <FaUserInjured className="icon" />
 
-        </div>
+              <h2>Patient Login</h2>
+
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale:1.03 }}
+              className="portal register"
+              onClick={() => navigate("/register")}
+            >
+
+              <FaHospital className="icon" />
+
+              <h2>Patient Registration</h2>
+
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale:1.03 }}
+              className="portal admin"
+              onClick={() => navigate("/admin-login")}
+            >
+
+              <FaUserMd className="icon" />
+
+              <h2>Hospital/Admin Login</h2>
+
+            </motion.div>
+
+          </div>
+
+        </motion.div>
 
       </div>
 
     </div>
   );
-}
+};
 
 export default Home;

@@ -3,13 +3,26 @@ package org.HMS.Dto;
 public class RegisterRequestDto {
 
     private String fullName;
+
     private String email;
+
     private String phone;
+
     private String password;
+
     private String role;
 
-    public RegisterRequestDto() {
-    }
+    private int age;
+
+    private String gender;
+
+    private String bloodGroup;
+
+    private String address;
+
+    private String otp;
+
+    // GETTERS & SETTERS
 
     public String getFullName() {
         return fullName;
@@ -49,5 +62,45 @@ public class RegisterRequestDto {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getBloodGroup() {
+        return bloodGroup;
+    }
+
+    public String getOtp() {
+        return otp;
+    }
+
+    public void setOtp(String otp) {
+        this.otp = otp;
+    }
+
+    public void setBloodGroup(String bloodGroup) {
+        this.bloodGroup = bloodGroup;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

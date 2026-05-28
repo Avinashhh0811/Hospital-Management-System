@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Service
@@ -34,57 +35,53 @@ public class AppointmentServiceImpl
     @Override
     public String bookAppointment(AppointmentDto dto) {
 
-        // Find Patient
         Patient patient = patientRepository
                 .findById(dto.getPatientId())
                 .orElseThrow(() ->
                         new RuntimeException("Patient Not Found"));
 
-        // Find Doctor
         Doctor doctor = doctorRepository
                 .findById(dto.getDoctorId())
                 .orElseThrow(() ->
                         new RuntimeException("Doctor Not Found"));
 
-        // Find Hospital
         Hospital hospital = hospitalRepository
                 .findById(dto.getHospitalId())
                 .orElseThrow(() ->
                         new RuntimeException("Hospital Not Found"));
 
-        // Check Slot
+        LocalDate date =
+                LocalDate.parse(dto.getAppointmentDate());
+
+        LocalTime time =
+                LocalTime.parse(dto.getAppointmentTime());
+
         boolean alreadyBooked =
                 appointmentRepository
-                        .existsByDoctorDoctorIdAndAppointmentDateAndAppointmentTime(
+                        .existsByDoctor_DoctorIdAndAppointmentDateAndAppointmentTime(
                                 dto.getDoctorId(),
-                                LocalDate.parse(dto.getAppointmentDate()),
-                                dto.getAppointmentTime()
+                                date,
+                                time
                         );
 
-        if(alreadyBooked) {
+        if (alreadyBooked) {
             return "Slot Already Booked";
         }
 
-        // Create Appointment
         Appointment appointment = new Appointment();
-
-        appointment.setAppointmentDate(
-                LocalDate.parse(dto.getAppointmentDate())
-        );
-
-        appointment.setAppointmentTime(
-                dto.getAppointmentTime()
-        );
-
-        appointment.setStatus("BOOKED");
-
-        appointment.setPatient(patient);
 
         appointment.setDoctor(doctor);
 
+        appointment.setPatient(patient);
+
         appointment.setHospital(hospital);
 
-        // Save Appointment
+        appointment.setAppointmentDate(date);
+
+        appointment.setAppointmentTime(time);
+
+        appointment.setStatus("BOOKED");
+
         appointmentRepository.save(appointment);
 
         return "Appointment Booked Successfully";
@@ -99,10 +96,10 @@ public class AppointmentServiceImpl
     @Override
     public String cancelAppointment(Long appointmentId) {
 
-        Appointment appointment = appointmentRepository
-                .findById(appointmentId)
-                .orElseThrow(() ->
-                        new RuntimeException("Appointment Not Found"));
+        Appointment appointment =
+                appointmentRepository.findById(appointmentId)
+                        .orElseThrow(() ->
+                                new RuntimeException("Appointment Not Found"));
 
         appointment.setStatus("CANCELLED");
 
@@ -115,13 +112,13 @@ public class AppointmentServiceImpl
     public List<Appointment> getAppointmentsByDoctor(Long doctorId) {
 
         return appointmentRepository
-                .findByDoctorDoctorId(doctorId);
+                .findByDoctor_DoctorId(doctorId);
     }
 
     @Override
     public List<Appointment> getAppointmentsByPatient(Long patientId) {
 
         return appointmentRepository
-                .findByPatientPatientId(patientId);
+                .findByPatient_Id(patientId);
     }
 }

@@ -22,15 +22,30 @@ public class User {
     @JsonIgnore
     private String password;
 
+    // NEW FIELDS
+
+    private int age;
+
+    private String gender;
+
+    private String bloodGroup;
+
+    @Column(length = 1000)
+    private String address;
+
+    // ROLE
+
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
 
-    // Constructors
+    // ================= CONSTRUCTOR =================
+
     public User() {
     }
 
-    // Getter Setter
+    // ================= GETTERS & SETTERS =================
+
     public Long getId() {
         return id;
     }
@@ -69,6 +84,38 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getBloodGroup() {
+        return bloodGroup;
+    }
+
+    public void setBloodGroup(String bloodGroup) {
+        this.bloodGroup = bloodGroup;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Role getRole() {

@@ -8,9 +8,13 @@ public class Patient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long patientId;
+    private Long id;
 
-    private String patientName;
+    private String fullName;
+
+    private String email;
+
+    private String phone;
 
     private int age;
 
@@ -20,29 +24,38 @@ public class Patient {
 
     private String address;
 
-    private String phone;
+    // GETTER SETTER
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    public Patient() {
+    public Long getId() {
+        return id;
     }
 
-    public Long getPatientId() {
-        return patientId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setPatientId(Long patientId) {
-        this.patientId = patientId;
+    public String getFullName() {
+        return fullName;
     }
 
-    public String getPatientName() {
-        return patientName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public int getAge() {
@@ -75,21 +88,5 @@ public class Patient {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

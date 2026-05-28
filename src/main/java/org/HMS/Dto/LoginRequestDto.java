@@ -3,6 +3,7 @@ package org.HMS.Dto;
 public class LoginRequestDto {
 
     private String email;
+
     private String password;
 
     public LoginRequestDto() {

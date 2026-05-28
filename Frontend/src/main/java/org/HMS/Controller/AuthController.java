@@ -2,7 +2,6 @@ package org.HMS.Controller;
 
 import org.HMS.Dto.LoginRequestDto;
 import org.HMS.Dto.RegisterRequestDto;
-import org.HMS.Service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

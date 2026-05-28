@@ -27,16 +27,12 @@ public class Appointment {
 
     private LocalDate appointmentDate;
 
-    private String appointmentTime;
+    private LocalTime appointmentTime;
 
-    private String status = "BOOKED";
-
-    // Constructors
+    private String status;
 
     public Appointment() {
     }
-
-    // Getters and Setters
 
     public Long getAppointmentId() {
         return appointmentId;
@@ -61,6 +57,15 @@ public class Appointment {
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
+
+    public Hospital getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(Hospital hospital) {
+        this.hospital = hospital;
+    }
+
     public LocalDate getAppointmentDate() {
         return appointmentDate;
     }
@@ -69,11 +74,11 @@ public class Appointment {
         this.appointmentDate = appointmentDate;
     }
 
-    public String getAppointmentTime() {
+    public LocalTime getAppointmentTime() {
         return appointmentTime;
     }
 
-    public void setAppointmentTime(String appointmentTime) {
+    public void setAppointmentTime(LocalTime appointmentTime) {
         this.appointmentTime = appointmentTime;
     }
 
@@ -83,13 +88,5 @@ public class Appointment {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public Hospital getHospital() {
-        return hospital;
-    }
-
-    public void setHospital(Hospital hospital) {
-        this.hospital = hospital;
     }
 }
