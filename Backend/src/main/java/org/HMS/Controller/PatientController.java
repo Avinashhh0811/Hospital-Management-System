@@ -1,21 +1,27 @@
 package org.HMS.Controller;
 
-import org.HMS.Dto.PatientDto;
-import org.HMS.Service.PatientService;
+import org.HMS.Entity.Patient;
+import org.HMS.Repository.PatientRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/patient")
+@CrossOrigin("*")
 public class PatientController {
 
     @Autowired
-    private PatientService patientService;
+    private PatientRepository patientRepository;
 
-    @PostMapping("/add")
-    public String addPatient(
-            @RequestBody PatientDto dto) {
+    @GetMapping("/profile/{email}")
+    public Patient getProfile(
 
-        return patientService.addPatient(dto);
+            @PathVariable String email
+    ) {
+
+        return patientRepository
+                .findByEmail(email)
+                .orElse(null);
     }
 }

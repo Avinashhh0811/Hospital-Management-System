@@ -1,5 +1,6 @@
 import "./Dashboard.css";
 
+
 import {
   LayoutDashboard,
   CalendarDays,
@@ -11,8 +12,10 @@ import {
   Bell,
   Search
 } from "lucide-react";
+import axios from "axios";
+import {useState,useEffect } from "react";
 
-import { useState } from "react";
+
 
 import { useNavigate } from "react-router-dom";
 
@@ -23,25 +26,69 @@ function Dashboard() {
   const [selected, setSelected] =
     useState("Dashboard");
 
-  const profileData = {
+ const [profileData, setProfileData] = useState({
 
-    fullName:
-      localStorage
-        .getItem("email")
-        ?.split("@")[0],
+   fullName: "",
+   email: "",
+   phone: "",
+   role: "",
+   age: "",
+   gender: "",
+   bloodGroup: "",
+   address: ""
 
-    email:
-      localStorage
-        .getItem("email"),
+ });
 
-    role:
-      localStorage
-        .getItem("role"),
+useEffect(() => {
 
-    phone:
-      "9876543210"
+  const fetchProfile = async () => {
+
+    try {
+
+      const email =
+        localStorage.getItem("email");
+
+      const response = await axios.get(
+
+        `http://localhost:8080/patient/profile/${email}`
+      );
+
+      setProfileData(response.data);
+
+    }
+
+    catch(error){
+
+      console.log(error);
+    }
   };
 
+  fetchProfile();
+
+}, []);
+
+  const fetchProfile = async () => {
+
+    try {
+
+      const email =
+        localStorage.getItem("email");
+
+      const response =
+        await axios.get(
+
+          `http://localhost:8080/patient/profile/${email}`
+        );
+
+      setProfileData(response.data);
+
+    }
+
+    catch(error){
+
+      console.log(error);
+    }
+  };
   const logout = () => {
 
     localStorage.clear();
@@ -365,64 +412,134 @@ function Dashboard() {
 
         {/* PROFILE */}
 
+        {/* PROFILE */}
+
         {
           selected === "Profile" && (
 
-            <div className="sectionBox">
+            <div className="profilePage">
 
-              <h1>
-                My Profile
-              </h1>
+              {/* TOP PROFILE */}
 
-              <div className="profileDetails">
+              <div className="profileHero">
 
-                <p>
+                <div className="profileLeft">
 
-                  <strong>Name:</strong>
+                  <div className="profileAvatar">
 
-                  {" "}
+                    {
+                      profileData?.fullName
+                      ?.charAt(0)
+                      ?.toUpperCase()
+                    }
 
-                  {
-                    profileData.fullName
-                  }
+                  </div>
 
-                </p>
+                  <div>
 
-                <p>
+                    <h1>
+                      {profileData?.fullName}
+                    </h1>
 
-                  <strong>Email:</strong>
+                    <p>
+                      HMS Patient Portal
+                    </p>
 
-                  {" "}
+                  </div>
 
-                  {
-                    profileData.email
-                  }
+                </div>
 
-                </p>
+                <button className="editBtn">
 
-                <p>
+                  Edit Profile
 
-                  <strong>Role:</strong>
+                </button>
 
-                  {" "}
+              </div>
 
-                  {
-                    profileData.role
-                  }
+              {/* DETAILS */}
 
-                </p>
+              <div className="profileGrid">
 
-                <p>
+                <div className="infoCard">
 
-                  <strong>Phone:</strong>
+                  <h3>Full Name</h3>
 
-                  {" "}
+                  <p>
+                    {profileData?.fullName}
+                  </p>
 
-                  {
-                    profileData.phone
-                  }
+                </div>
 
-                </p>
+                <div className="infoCard">
+
+                  <h3>Email</h3>
+
+                  <p>
+                    {profileData?.email}
+                  </p>
+
+                </div>
+
+                <div className="infoCard">
+
+                  <h3>Phone</h3>
+
+                  <p>
+                    {profileData?.phone}
+                  </p>
+
+                </div>
+
+                <div className="infoCard">
+
+                  <h3>Role</h3>
+
+                  <p>
+                    {profileData?.role}
+                  </p>
+
+                </div>
+
+                <div className="infoCard">
+
+                  <h3>Age</h3>
+
+                  <p>
+                    {profileData?.age}
+                  </p>
+
+                </div>
+
+                <div className="infoCard">
+
+                  <h3>Gender</h3>
+
+                  <p>
+                    {profileData?.gender}
+                  </p>
+
+                </div>
+
+                <div className="infoCard">
+
+                  <h3>Blood Group</h3>
+
+                  <p>
+                    {profileData?.bloodGroup}
+                  </p>
+
+                </div>
+
+                <div className="infoCard addressCard">
+
+                  <h3>Address</h3>
+
+                  <p>
+                    {profileData?.address}
+                  </p>
+
+                </div>
 
               </div>
 
