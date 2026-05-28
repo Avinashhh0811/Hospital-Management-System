@@ -1,116 +1,99 @@
+import "./Login.css";
+
+import axios from "axios";
+
 import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import API from "../services/api";
-
 function Login() {
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("");
 
-    const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
 
-    const handleLogin = async (e) => {
+  const handleLogin = async () => {
 
-        e.preventDefault();
+    try {
 
-        try {
+      const response = await axios.post(
 
-            const response = await API.post(
-                "/auth/login",
-                {
-                    email,
-                    password
-                }
-            );
+        "http://localhost:8080/auth/login",
 
-            localStorage.setItem(
-                "token",
-                response.data
-            );
-
-            alert("Login Successful");
-
-            navigate("/dashboard");
-
-        } catch(error) {
-
-            console.log(error);
-
-            alert("Invalid Credentials");
+        {
+          email: email,
+          password: password
         }
-    };
 
-    return (
+      );
 
-        <div style={{
-            minHeight: "100vh",
-            background: "#020617",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-        }}>
+      console.log(response.data);
 
-            <form
-                onSubmit={handleLogin}
-                style={{
-                    width: "100%",
-                    maxWidth: "400px",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "20px",
-                    background: "rgba(255,255,255,0.05)",
-                    padding: "40px",
-                    borderRadius: "20px"
-                }}>
+      alert("Login Successful 😎");
 
-                <h1 style={{
-                    color: "white",
-                    textAlign: "center"
-                }}>
+      localStorage.setItem(
+        "token",
+        response.data
+      );
 
-                    HMS Login
+      navigate("/dashboard");
 
-                </h1>
+    }
 
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e)=>
-                        setEmail(e.target.value)}
-                />
+    catch(error){
 
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e)=>
-                        setPassword(e.target.value)}
-                />
+      console.log(error);
 
-                <button
-                    type="submit"
-                    style={{
-                        padding: "15px",
-                        background: "#2563eb",
-                        color: "white",
-                        border: "none",
-                        borderRadius: "10px",
-                        cursor: "pointer",
-                        fontSize: "18px"
-                    }}>
+      alert("Invalid Credentials ❌");
+    }
+  };
 
-                    Login
+  return (
 
-                </button>
+    <div className="loginPage">
 
-            </form>
+      <div className="bgAnimation"></div>
+
+      <div className="loginContainer">
+
+        <div className="loginCard">
+
+          <h1>HMS Portal</h1>
+
+          <p>
+            Smart Hospital Management System
+          </p>
+
+          <input
+            type="email"
+            placeholder="Enter Email"
+            value={email}
+            onChange={(e)=>
+              setEmail(e.target.value)
+            }
+          />
+
+          <input
+            type="password"
+            placeholder="Enter Password"
+            value={password}
+            onChange={(e)=>
+              setPassword(e.target.value)
+            }
+          />
+
+          <button onClick={handleLogin}>
+            Login
+          </button>
 
         </div>
-    );
+
+      </div>
+
+    </div>
+  );
 }
 
 export default Login;

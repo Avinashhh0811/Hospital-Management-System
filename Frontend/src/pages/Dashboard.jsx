@@ -1,92 +1,124 @@
-import { useNavigate } from "react-router-dom";
+import "./Dashboard.css";
+
+import {
+  CalendarDays,
+  ClipboardList,
+  User,
+  FileText,
+  History,
+  LogOut
+} from "lucide-react";
 
 function Dashboard() {
 
-    const navigate = useNavigate();
+  return (
 
-    const handleLogout = () => {
+    <div className="dashboard">
 
-        localStorage.removeItem("token");
+      {/* SIDEBAR */}
 
-        navigate("/login");
-    };
+      <div className="sidebar">
 
-    return (
+        <h1 className="logo">HMS</h1>
 
-        <div style={{
-            minHeight: "100vh",
-            background: "#020617",
-            color: "white",
-            padding: "40px"
-        }}>
+        <ul>
 
-            <h1 style={{
-                textAlign: "center",
-                marginBottom: "50px"
-            }}>
+          <li className="active">Dashboard</li>
 
-                HMS Dashboard 🏥
+          <li>Appointments</li>
 
+          <li>Doctors</li>
+
+          <li>History</li>
+
+          <li>Reports</li>
+
+          <li>Profile</li>
+
+          <li>Settings</li>
+
+        </ul>
+
+      </div>
+
+      {/* MAIN */}
+
+      <div className="main">
+
+        <div className="hero">
+
+          <div className="hero-text">
+
+            <h1>
+              Welcome Back 👋
             </h1>
 
-            <div style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: "20px",
-                flexWrap: "wrap"
-            }}>
+            <p>
+              Manage appointments, reports and
+              health records easily with HMS.
+            </p>
 
-                <button
-                    onClick={() => navigate("/patients")}
-                    style={cardStyle}>
-
-                    Patients
-
-                </button>
-
-                <button
-                    onClick={() => navigate("/doctors")}
-                    style={cardStyle}>
-
-                    Doctors
-
-                </button>
-
-                <button
-                    onClick={() => navigate("/appointments")}
-                    style={cardStyle}>
-
-                    Appointments
-
-                </button>
-
-                <button
-                    onClick={handleLogout}
-                    style={{
-                        ...cardStyle,
-                        background: "red"
-                    }}>
-
-                    Logout
-
-                </button>
-
-            </div>
+          </div>
 
         </div>
-    );
+
+        <div className="cards">
+
+          <div className="card blue">
+
+            <CalendarDays size={70} color="white" />
+
+            <h2>Book Appointment</h2>
+
+          </div>
+
+          <div className="card purple">
+
+            <ClipboardList size={70} color="white" />
+
+            <h2>Appointments</h2>
+
+          </div>
+
+          <div className="card green">
+
+            <User size={70} color="white" />
+
+            <h2>Profile</h2>
+
+          </div>
+
+          <div className="card cyan">
+
+            <History size={70} color="white" />
+
+            <h2>History</h2>
+
+          </div>
+
+          <div className="card orange">
+
+            <FileText size={70} color="white" />
+
+            <h2>Reports</h2>
+
+          </div>
+
+          <div className="card red">
+
+            <LogOut size={70} color="white" />
+
+            <h2>Logout</h2>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  );
 }
-
-const cardStyle = {
-
-    width: "200px",
-    height: "120px",
-    border: "none",
-    borderRadius: "15px",
-    background: "#2563eb",
-    color: "white",
-    fontSize: "20px",
-    cursor: "pointer"
-};
 
 export default Dashboard;

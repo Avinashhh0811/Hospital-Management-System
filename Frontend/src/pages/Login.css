@@ -1,0 +1,197 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+.loginPage{
+  width:100%;
+  height:100vh;
+
+  overflow:hidden;
+
+  background:
+  linear-gradient(
+    135deg,
+    #020617,
+    #0f172a,
+    #111827
+  );
+
+  position:relative;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* Animated Background */
+
+.bgAnimation{
+  position:absolute;
+
+  width:700px;
+  height:700px;
+
+  background:
+  radial-gradient(circle,
+  rgba(37,99,235,0.4),
+  transparent 70%);
+
+  animation:move 8s infinite alternate;
+
+  filter:blur(40px);
+}
+
+@keyframes move{
+
+  0%{
+    transform:
+    translate(-200px,-100px);
+  }
+
+  100%{
+    transform:
+    translate(250px,150px);
+  }
+}
+
+/* Login Card */
+
+.loginContainer{
+  z-index:10;
+}
+
+.loginCard{
+
+  width:420px;
+
+  padding:45px;
+
+  border-radius:30px;
+
+  background:
+  rgba(255,255,255,0.08);
+
+  border:
+  1px solid rgba(255,255,255,0.1);
+
+  backdrop-filter:blur(18px);
+
+  box-shadow:
+  0 0 40px rgba(0,0,0,0.5);
+
+  display:flex;
+  flex-direction:column;
+
+  gap:20px;
+
+  animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.loginCard h1{
+
+  color:white;
+
+  text-align:center;
+
+  font-size:52px;
+
+  font-weight:bold;
+}
+
+.loginCard p{
+
+  text-align:center;
+
+  color:#cbd5e1;
+
+  margin-bottom:10px;
+}
+
+/* Inputs */
+
+.loginCard input{
+
+  width:100%;
+
+  padding:16px;
+
+  border:none;
+
+  outline:none;
+
+  border-radius:14px;
+
+  background:
+  rgba(255,255,255,0.07);
+
+  color:white;
+
+  font-size:17px;
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  transition:0.3s;
+}
+
+.loginCard input:focus{
+
+  border:
+  1px solid #3b82f6;
+
+  box-shadow:
+  0 0 15px rgba(59,130,246,0.5);
+}
+
+/* Button */
+
+.loginCard button{
+
+  margin-top:10px;
+
+  padding:16px;
+
+  border:none;
+
+  border-radius:14px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+
+  color:white;
+
+  font-size:18px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:0.4s;
+}
+
+.loginCard button:hover{
+
+  transform:translateY(-3px);
+
+  box-shadow:
+  0 0 25px rgba(59,130,246,0.6);
+}
