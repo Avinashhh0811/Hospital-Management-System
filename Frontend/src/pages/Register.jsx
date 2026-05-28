@@ -90,6 +90,12 @@ function Register() {
                     email,
                     phone,
                     password,
+
+                    age,
+                    gender,
+                    bloodGroup,
+                    address,
+
                     role: "ROLE_PATIENT"
                 }
             );
@@ -100,10 +106,14 @@ function Register() {
 
         } catch(error) {
 
-            console.log(error);
+              console.log(error);
 
-            alert("Registration Failed");
-        }
+              console.log(error.response);
+
+              console.log(error.response.data);
+
+              alert(error.response.data);
+          }
     };
 
     return (
