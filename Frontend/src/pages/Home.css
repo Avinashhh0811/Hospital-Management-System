@@ -1,8 +1,12 @@
 .home{
   min-height:100vh;
+
   background:
-  linear-gradient(rgba(0,0,0,0.5),
-  rgba(0,0,0,0.7)),
+  linear-gradient(
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.45)
+  ),
+
   url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3");
 
   background-size:cover;
@@ -27,11 +31,11 @@
   width:100%;
   max-width:1200px;
 
-  background:rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.06);
 
-  border:1px solid rgba(255,255,255,0.15);
+  border:1px solid rgba(255,255,255,0.12);
 
-  backdrop-filter:blur(15px);
+  backdrop-filter:blur(8px);
 
   border-radius:30px;
 
@@ -39,7 +43,7 @@
 
   text-align:center;
 
-  box-shadow:0 8px 40px rgba(0,0,0,0.4);
+  box-shadow:0 8px 40px rgba(0,0,0,0.35);
 }
 
 .home-card h1{
