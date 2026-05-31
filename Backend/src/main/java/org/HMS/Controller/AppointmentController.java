@@ -17,7 +17,7 @@ public class AppointmentController {
     @Autowired
     private AppointmentService appointmentService;
 
-    // ================= BOOK APPOINTMENT =================
+   //Book Appointment
 
     @PostMapping("/book")
     public String bookAppointment(
@@ -28,7 +28,7 @@ public class AppointmentController {
                 .bookAppointment(dto);
     }
 
-    // ================= GET ALL APPOINTMENTS =================
+    // Get all appointments
 
     @GetMapping("/all")
     public List<Appointment> getAllAppointments() {
@@ -37,7 +37,7 @@ public class AppointmentController {
                 .getAllAppointments();
     }
 
-    // ================= CANCEL APPOINTMENT =================
+    // Cancel appointment
 
     @PutMapping("/cancel/{appointmentId}")
     public String cancelAppointment(
@@ -50,7 +50,7 @@ public class AppointmentController {
                 );
     }
 
-    // ================= GET DOCTOR APPOINTMENTS =================
+    // Get Doctor appointment
 
     @GetMapping("/doctor/{doctorId}")
     public List<Appointment>
@@ -65,7 +65,7 @@ public class AppointmentController {
                 );
     }
 
-    // ================= GET PATIENT APPOINTMENTS =================
+    // Get patient appointment
 
     @GetMapping("/patient/{patientId}")
     public List<Appointment>

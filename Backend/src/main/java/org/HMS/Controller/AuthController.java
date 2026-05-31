@@ -43,7 +43,7 @@ public class AuthController {
     @Autowired
     private PatientRepository patientRepository;
 
-    // ================= SEND REGISTER OTP =================
+    // SEND REGISTER OTP
 
     @PostMapping("/send-otp")
     public ResponseEntity<?> sendOtp(
@@ -82,7 +82,7 @@ public class AuthController {
         }
     }
 
-    // ================= VERIFY REGISTER =================
+    //  VERIFY REGISTER
     @PostMapping("/verify-register")
 
     public ResponseEntity<?> verifyRegister(
@@ -197,7 +197,7 @@ public class AuthController {
                     );
         }
     }
-// ================= LOGIN =================
+//  LOGIN
 
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(
@@ -260,7 +260,7 @@ public class AuthController {
         }
     }
 
-    // ================= VERIFY OTP =================
+    // VERIFY OTP
 
     @PostMapping("/verify-otp")
     public ResponseEntity<?> verifyOtp(
@@ -287,7 +287,7 @@ public class AuthController {
                 .body("Invalid OTP");
     }
 
-    // ================= FORGOT PASSWORD SEND OTP =================
+    //FORGOT PASSWORD SEND OTP
 
     @PostMapping("/forgot-password/send-otp")
     public ResponseEntity<?> sendForgotPasswordOtp(
@@ -328,7 +328,7 @@ public class AuthController {
         }
     }
 
-    // ================= RESET PASSWORD =================
+    //  RESET PASSWORD
 
     @PostMapping("/reset-password")
     public ResponseEntity<?> resetPassword(
