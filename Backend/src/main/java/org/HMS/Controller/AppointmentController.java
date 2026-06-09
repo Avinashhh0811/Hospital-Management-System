@@ -72,7 +72,8 @@ public class AppointmentController {
     getAppointmentsByPatient(
 
             @PathVariable Long patientId
-    ) {
+    )
+    {
 
         return appointmentService
                 .getAppointmentsByPatient(

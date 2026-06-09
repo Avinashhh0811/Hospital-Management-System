@@ -14,7 +14,7 @@ public class PatientDto {
 
     private String phone;
 
-    private String email;
+
 
     private Long userId;
 
@@ -85,15 +85,7 @@ public class PatientDto {
         this.phone = phone;
     }
 
-    public String getEmail() {
 
-        return email;
-    }
-
-    public void setEmail(String email) {
-
-        this.email = email;
-    }
 
     public Long getUserId() {
 

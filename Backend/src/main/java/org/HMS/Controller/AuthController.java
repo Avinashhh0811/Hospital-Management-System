@@ -121,23 +121,13 @@ public class AuthController {
             }
 
             // USER SAVE
-
             User user = new User();
-
-            user.setFullName(
-                    request.getFullName()
-            );
 
             user.setEmail(
                     request.getEmail()
             );
 
-            user.setPhone(
-                    request.getPhone()
-            );
-
             user.setPassword(
-
                     passwordEncoder.encode(
                             request.getPassword()
                     )
@@ -147,16 +137,12 @@ public class AuthController {
 
             userRepository.save(user);
 
-            // PATIENT SAVE
-
             Patient patient = new Patient();
+
+            patient.setUser(user);
 
             patient.setFullName(
                     request.getFullName()
-            );
-
-            patient.setEmail(
-                    request.getEmail()
             );
 
             patient.setPhone(

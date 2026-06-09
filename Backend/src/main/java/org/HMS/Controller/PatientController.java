@@ -16,12 +16,11 @@ public class PatientController {
 
     @GetMapping("/profile/{email}")
     public Patient getProfile(
-
             @PathVariable String email
     ) {
 
         return patientRepository
-                .findByEmail(email)
+                .findByUserEmail(email)
                 .orElse(null);
     }
 }

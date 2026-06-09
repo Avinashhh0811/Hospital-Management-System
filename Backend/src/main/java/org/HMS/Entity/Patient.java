@@ -1,5 +1,4 @@
 package org.HMS.Entity;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -10,9 +9,11 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String fullName;
+    @OneToOne
+    @JoinColumn(name = "user_id", unique = true)
+    private User user;
 
-    private String email;
+    private String fullName;
 
     private String phone;
 
@@ -24,8 +25,6 @@ public class Patient {
 
     private String address;
 
-    // GETTER SETTER
-
     public Long getId() {
         return id;
     }
@@ -34,20 +33,20 @@ public class Patient {
         this.id = id;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public String getFullName() {
         return fullName;
     }
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPhone() {

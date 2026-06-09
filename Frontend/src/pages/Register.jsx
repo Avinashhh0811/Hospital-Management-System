@@ -1,12 +1,28 @@
 import "./Register.css";
-
 import axios from "axios";
-
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
+   const [timer, setTimer] = useState(0);
+
+   useEffect(() => {
+
+     let interval;
+
+     if (timer > 0) {
+
+       interval = setInterval(() => {
+
+         setTimer((prev) => prev - 1);
+
+       }, 1000);
+
+     }
+
+     return () => clearInterval(interval);
+
+   }, [timer]);
 
   const navigate = useNavigate();
 
@@ -45,52 +61,101 @@ function Register() {
     useState(false);
 
   /* SEND OTP */
+const sendOtp = async () => {
 
-  const sendOtp = async () => {
+  if (!fullName.trim()) {
+    alert("Full Name is required");
+    return;
+  }
 
-    try {
+  if (!email.trim()) {
+    alert("Email is required");
+    return;
+  }
 
-      if(password !== confirmPassword){
+  if (!phone.trim()) {
+    alert("Phone Number is required");
+    return;
+  }
 
-        alert(
-          "Passwords do not match ❌"
-        );
+  if (!/^[0-9]{10}$/.test(phone)) {
+    alert("Enter valid 10 digit phone number");
+    return;
+  }
 
-        return;
+  if (!age) {
+    alert("Age is required");
+    return;
+  }
+
+  if (age < 1 || age > 120) {
+    alert("Enter valid age");
+    return;
+  }
+
+  if (!gender) {
+    alert("Gender is required");
+    return;
+  }
+
+  if (!bloodGroup) {
+    alert("Blood Group is required");
+    return;
+  }
+
+  if (!address.trim()) {
+    alert("Address is required");
+    return;
+  }
+
+  if (!password.trim()) {
+    alert("Password is required");
+    return;
+  }
+
+  if (password.length < 6) {
+    alert("Password must be at least 6 characters");
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match ❌");
+    return;
+  }
+
+  try {
+
+    await axios.post(
+      "http://localhost:8080/api/auth/send-otp",
+      {
+        email: email
       }
+    );
 
-      await axios.post(
+    alert("OTP Sent Successfully 📩");
 
-        "http://localhost:8080/api/auth/send-otp",
+    setOtpSent(true);
 
-        {
-          email: email
-        }
-      );
+    setTimer(30);
 
-      alert(
-        "OTP Sent Successfully 📩"
-      );
+  } catch (error) {
 
-      setOtpSent(true);
+    console.log(error);
 
-    }
-
-    catch(error){
-
-      console.log(error);
-
-      alert(
-        "Failed To Send OTP ❌"
-      );
-    }
-  };
+    alert("Failed To Send OTP ❌");
+  }
+};
 
   /* REGISTER */
 
   /* REGISTER */
 
   const handleRegister = async () => {
+
+      if (!otp.trim()) {
+        alert("Please Enter OTP");
+        return;
+      }
 
     try {
 
@@ -225,12 +290,11 @@ function Register() {
 
                     <select
                       value={gender}
-                      onChange={(e)=>
-                        setGender(
-                          e.target.value
-                        )
-                      }
+                      onChange={(e) => setGender(e.target.value)}
                     >
+                      <option value="">
+                        Select Gender
+                      </option>
 
                       <option value="Male">
                         Male
@@ -241,11 +305,9 @@ function Register() {
                       </option>
 
                       <option value="Other">
-                                             Other
-                                            </option>
-
+                        Other
+                      </option>
                     </select>
-
                   </div>
 
                   {/* BLOOD GROUP */}
@@ -260,6 +322,9 @@ function Register() {
                         )
                       }
                     >
+                      <option value="">
+                            Select Blood Group
+                      </option>
 
                       <option value="A+">
                         A+
@@ -369,6 +434,34 @@ function Register() {
                 >
                   Verify & Register
                 </button>
+
+                {timer > 0 ? (
+
+                  <p
+                    style={{
+                      marginTop: "10px",
+                      color: "#ccc"
+                    }}
+                  >
+                    Resend OTP in {timer}s
+                  </p>
+
+                ) : (
+
+                  <button
+                    onClick={sendOtp}
+                    style={{
+                      marginTop: "10px",
+                      background: "transparent",
+                      border: "none",
+                      color: "#7aa2ff",
+                      cursor: "pointer"
+                    }}
+                  >
+                    Resend OTP
+                  </button>
+
+                )}
 
               </div>
             )

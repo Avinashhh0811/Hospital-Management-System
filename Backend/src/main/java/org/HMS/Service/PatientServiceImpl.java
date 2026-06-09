@@ -31,9 +31,9 @@ public class PatientServiceImpl
 
         Patient patient = new Patient();
 
-        patient.setFullName(dto.getFullName());
+        patient.setUser(user);
 
-        patient.setEmail(dto.getEmail());
+        patient.setFullName(dto.getFullName());
 
         patient.setPhone(dto.getPhone());
 
@@ -44,8 +44,6 @@ public class PatientServiceImpl
         patient.setBloodGroup(dto.getBloodGroup());
 
         patient.setAddress(dto.getAddress());
-
-
 
         patientRepository.save(patient);
 

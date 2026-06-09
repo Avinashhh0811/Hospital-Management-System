@@ -2,7 +2,7 @@ import "./ForgotPassword.css";
 
 import axios from "axios";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 
@@ -18,11 +18,36 @@ function ForgotPassword() {
 
   const [otpSent, setOtpSent] = useState(false);
 
+  const [timer, setTimer] = useState(0);
+
+  useEffect(() => {
+
+    let interval;
+
+    if (timer > 0) {
+
+      interval = setInterval(() => {
+
+        setTimer((prev) => prev - 1);
+
+      }, 1000);
+
+    }
+
+    return () => clearInterval(interval);
+
+  }, [timer]);
+
+
   // SEND OTP
 
   const sendOtp = async () => {
 
     try {
+        if (!email.trim()) {
+          alert("Email is required");
+          return;
+        }
 
       await axios.post(
         "http://localhost:8080/api/auth/forgot-password/send-otp",
@@ -34,6 +59,7 @@ function ForgotPassword() {
       alert("OTP Sent Successfully 📩");
 
       setOtpSent(true);
+      setTimer(30);
 
     } catch (error) {
 
@@ -122,8 +148,38 @@ function ForgotPassword() {
             <button onClick={resetPassword}>
               Reset Password
             </button>
+
+            {timer > 0 ? (
+
+              <p
+                style={{
+                  marginTop: "10px",
+                  color: "#ccc"
+                }}
+              >
+                Resend OTP in {timer}s
+              </p>
+
+            ) : (
+
+              <button
+                                 onClick={sendOtp}
+                                 style={{
+                                   marginTop: "10px",
+                                   background: "transparent",
+                                   border: "none",
+                                   color: "#7aa2ff",
+                                   cursor: "pointer"
+                                 }}
+                               >
+                                 Resend OTP
+                               </button>
+
+            )}
           </>
         }
+
+
 
       </div>
 

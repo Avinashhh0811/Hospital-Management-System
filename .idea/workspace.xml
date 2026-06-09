@@ -8,7 +8,17 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Controller/AppointmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Dto/ForgotPasswordRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Controller/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Dto/PatientDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Dto/PatientDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Entity/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Entity/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Repository/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Repository/PatientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/PatientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/PatientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/pages/ForgotPassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/pages/ForgotPassword.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/pages/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/pages/Register.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
