@@ -102,11 +102,17 @@ function ForgotPassword() {
 
       <div className="forgotCard">
 
-        <h1>Forgot Password</h1>
+       <div className="forgotHeader">
 
-        <p>
-          Reset your HMS account password
-        </p>
+         <h4>🏥 HMS Portal</h4>
+
+         <h1>Forgot Password</h1>
+
+         <p>
+           Reset your HMS account password
+         </p>
+
+       </div>
 
         <input
           type="email"

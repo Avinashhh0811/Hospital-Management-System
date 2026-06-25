@@ -1,0 +1,174 @@
+import "./ViewHospitals.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+function ViewHospitals() {
+
+    const [hospitals, setHospitals] = useState([]);
+
+    useEffect(() => {
+
+        loadHospitals();
+
+    }, []);
+
+    const loadHospitals = async () => {
+
+        try {
+
+            const response = await axios.get(
+                "http://localhost:8080/hospital/all"
+            );
+
+            setHospitals(response.data);
+
+        } catch (error) {
+
+            console.log(error);
+
+        }
+
+    };
+
+    const deleteHospital = async (id) => {
+
+        const confirmDelete = window.confirm(
+            "Delete this hospital?"
+        );
+
+        if (!confirmDelete) return;
+
+        try {
+
+            await axios.delete(
+                `http://localhost:8080/hospital/delete/${id}`
+            );
+
+            alert("Hospital Deleted Successfully");
+
+            loadHospitals();
+
+        } catch (error) {
+
+            console.log(error);
+
+            alert("Delete Failed");
+
+        }
+
+    };
+
+    return (
+
+        <div className="viewHospitalContainer">
+
+            <div className="mainContent">
+
+
+                  <div className="headerCard">
+                      <h1>🏥 Hospitals</h1>
+                      <p>Manage All Registered Hospitals</p>
+                  </div>
+
+
+                <div className="topBar">
+                    <input
+                        type="text"
+                        className="searchBox"
+                        placeholder="🔍 Search Hospital..."
+                    />
+                </div>
+
+              <div className="tableCard">
+
+                  <table className="hospitalTable">
+
+                        <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Name</th>
+
+                            <th>City</th>
+
+                            <th>Contact</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                        {
+
+                            hospitals.map((hospital)=>(
+
+                                <tr key={hospital.hospitalId}>
+
+                                    <td>
+
+                                        {hospital.hospitalId}
+
+                                    </td>
+
+                                    <td>
+
+                                        {hospital.hospitalName}
+
+                                    </td>
+
+                                    <td>
+
+                                        {hospital.city}
+
+                                    </td>
+
+                                    <td>
+
+                                        {hospital.contactNumber}
+
+                                    </td>
+
+                                    <td>
+
+                                       <td>
+
+                                           <button className="editBtn">
+                                               Edit
+                                           </button>
+
+                                           <button
+                                               className="deleteBtn"
+                                               onClick={() => deleteHospital(hospital.hospitalId)}
+                                           >
+                                               Delete
+                                           </button>
+
+                                       </td>
+                                    </td>
+
+                                </tr>
+
+                            ))
+
+                        }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    );
+
+}
+
+export default ViewHospitals;

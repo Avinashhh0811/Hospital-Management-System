@@ -24,6 +24,17 @@ import ProtectedRoute from "./pages/ProtectedRoute.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import ForgotPassword from "./pages/ForgotPassword";
 
+import AdminLogin from "./pages/AdminLogin";
+
+import AdminDashboard from "./pages/AdminDashboard";
+
+import SuperAdminLogin from "./pages/SuperAdminLogin";
+
+import SuperAdminDashboard from "./pages/SuperAdminDashboard";
+
+import AddHospital from "./pages/AddHospital";
+import ViewHospitals from "./pages/ViewHospitals";
+
 function App() {
 
     return (
@@ -128,6 +139,64 @@ function App() {
                 <Route
                   path="/forgot-password"
                   element={<ForgotPassword />}
+                />
+
+                {/* HOSPITAL ADMIN LOGIN */}
+
+                <Route
+                    path="/admin-login"
+                    element={<AdminLogin />}
+                />
+
+                {/* HOSPITAL ADMIN DASHBOARD */}
+
+                <Route
+                    path="/admin-dashboard"
+                    element={
+                        <ProtectedRoute>
+                            <AdminDashboard />
+                        </ProtectedRoute>
+                    }
+                />
+
+                {/* SUPER ADMIN LOGIN */}
+
+                <Route
+                    path="/super-admin-login"
+                    element={<SuperAdminLogin />}
+                />
+
+                {/* SUPER ADMIN DASHBOARD */}
+
+                <Route
+                    path="/super-admin-dashboard"
+                    element={
+                        <ProtectedRoute>
+                            <SuperAdminDashboard />
+                        </ProtectedRoute>
+                    }
+                />
+
+                {/* ADD HOSPITAL */}
+
+                <Route
+                    path="/add-hospital"
+                    element={
+                        <ProtectedRoute>
+                            <AddHospital />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/view-hospitals"
+                    element={
+                        <ProtectedRoute>
+
+                            <ViewHospitals/>
+
+                        </ProtectedRoute>
+                    }
                 />
 
             </Routes>

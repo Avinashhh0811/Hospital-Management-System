@@ -2,7 +2,6 @@ package org.HMS.Service;
 
 import org.HMS.Dto.HospitalDto;
 import org.HMS.Entity.Hospital;
-import org.HMS.Entity.User;
 import org.HMS.Repository.HospitalRepository;
 import org.HMS.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class HospitalServiceImpl
-        implements HospitalService {
+public class HospitalServiceImpl implements HospitalService {
 
     @Autowired
     private HospitalRepository hospitalRepository;
@@ -23,35 +21,29 @@ public class HospitalServiceImpl
     @Override
     public String addHospital(HospitalDto dto) {
 
-        User admin = userRepository
-                .findById(dto.getAdminId())
-                .orElseThrow(() ->
-                        new RuntimeException("Admin Not Found"));
+        try {
 
-        Hospital hospital = new Hospital();
+            Hospital hospital = new Hospital();
 
-        hospital.setHospitalName(
-                dto.getHospitalName());
+            hospital.setHospitalName(dto.getHospitalName());
+            hospital.setAddress(dto.getAddress());
+            hospital.setCity(dto.getCity());
+            hospital.setContactNumber(dto.getContactNumber());
 
-        hospital.setAddress(
-                dto.getAddress());
+            hospitalRepository.save(hospital);
 
-        hospital.setCity(
-                dto.getCity());
+            return "Hospital Added Successfully";
 
-        hospital.setContactNumber(
-                dto.getContactNumber());
+        } catch (Exception e) {
 
-        hospital.setAdmin(admin);
+            e.printStackTrace();
 
-        hospitalRepository.save(hospital);
-
-        return "Hospital Added Successfully";
+            return "Error : " + e.getMessage();
+        }
     }
 
     @Override
     public List<Hospital> getAllHospitals() {
-
         return hospitalRepository.findAll();
     }
 
@@ -62,6 +54,13 @@ public class HospitalServiceImpl
                 .findById(hospitalId)
                 .orElseThrow(() ->
                         new RuntimeException("Hospital Not Found"));
+
+
+        if (userRepository.existsByHospital(hospital)) {
+
+            return "Cannot Delete Hospital. Hospital Admin Exists.";
+
+        }
 
         hospitalRepository.delete(hospital);
 

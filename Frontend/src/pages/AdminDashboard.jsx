@@ -1,46 +1,71 @@
 function AdminDashboard() {
 
-  return (
+  const cardStyle = {
+    background: "white",
+    color: "#1e293b",
+    width: "250px",
+    padding: "25px",
+    borderRadius: "20px",
+    boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+    cursor: "pointer",
+    textAlign: "center",
+    fontWeight: "600"
+  };
 
+  return (
     <div
       style={{
-        minHeight:"100vh",
-        background:"#020617",
-        color:"white",
-        padding:"40px"
+        minHeight: "100vh",
+        background: "#f8fafc",
+        padding: "40px"
       }}
     >
-
-      <h1>Hospital Admin Dashboard 🏥</h1>
-
-      <br />
+      <h1
+        style={{
+          color: "#1e3a8a",
+          marginBottom: "30px"
+        }}
+      >
+        🏥 Hospital Admin Dashboard
+      </h1>
 
       <div
         style={{
-          display:"flex",
-          gap:"20px",
-          flexWrap:"wrap"
+          display: "flex",
+          gap: "25px",
+          flexWrap: "wrap"
         }}
       >
-
-        <div className="dashCard">
+        <div style={cardStyle}>
+          👨‍⚕️ <br /><br />
           Add Doctor
         </div>
 
-        <div className="dashCard">
+        <div style={cardStyle}>
+          🗑️ <br /><br />
           Remove Doctor
         </div>
 
-        <div className="dashCard">
+        <div style={cardStyle}>
+          🧑‍🤝‍🧑 <br /><br />
           View Patients
         </div>
 
-        <div className="dashCard">
-          View Appointments
+        <div style={cardStyle}>
+          📅 <br /><br />
+          Appointments
         </div>
 
-      </div>
+        <div style={cardStyle}>
+          👨‍💼 <br /><br />
+          Employees
+        </div>
 
+        <div style={cardStyle}>
+          📋 <br /><br />
+          Reports
+        </div>
+      </div>
     </div>
   );
 }

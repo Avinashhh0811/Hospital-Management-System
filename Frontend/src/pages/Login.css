@@ -2,269 +2,150 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
 }
 
 .loginPage{
-  width:100%;
-  height:100vh;
-
-  overflow:hidden;
-
-  background:
-  linear-gradient(
-    135deg,
-    #020617,
-    #0f172a,
-    #111827
-  );
-
-  position:relative;
+  min-height:100vh;
 
   display:flex;
   justify-content:center;
   align-items:center;
-}
 
-/* Animated Background */
-
-.bgAnimation{
-  position:absolute;
-
-  width:700px;
-  height:700px;
+  padding:20px;
 
   background:
-  radial-gradient(circle,
-  rgba(37,99,235,0.4),
-  transparent 70%);
+  linear-gradient(
+    rgba(255,255,255,.88),
+    rgba(255,255,255,.92)
+  ),
+  url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1920&q=80");
 
-  animation:move 8s infinite alternate;
-
-  filter:blur(40px);
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
 }
 
-@keyframes move{
-
-  0%{
-    transform:
-    translate(-200px,-100px);
-  }
-
-  100%{
-    transform:
-    translate(250px,150px);
-  }
-}
-
-/* Login Card */
-
-.loginContainer{
-  z-index:10;
+.leftPanel{
+  display:none;
 }
 
 .loginCard{
+  width:100%;
+  max-width:550px;
 
-  width:420px;
+  background:rgba(255,255,255,.92);
+
+  backdrop-filter:blur(20px);
+
+  border-radius:25px;
 
   padding:45px;
 
-  border-radius:30px;
-
-  background:
-  rgba(255,255,255,0.08);
-
-  border:
-  1px solid rgba(255,255,255,0.1);
-
-  backdrop-filter:blur(18px);
-
   box-shadow:
-  0 0 40px rgba(0,0,0,0.5);
+  0 10px 35px rgba(0,0,0,.10);
 
-  display:flex;
-  flex-direction:column;
-
-  gap:20px;
-
-  animation:fadeIn 1s ease;
+  border:1px solid #e5e7eb;
 }
 
-@keyframes fadeIn{
-
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-.loginCard h1{
-
-  color:white;
-
+.loginHeader{
   text-align:center;
+  margin-bottom:35px;
+}
 
+.loginHeader h4{
+  color:#2563eb;
+  font-size:24px;
+  margin-bottom:12px;
+}
+
+.loginHeader h1{
+  color:#1e3a8a;
   font-size:52px;
-
-  font-weight:bold;
+  font-weight:800;
+  margin-bottom:12px;
 }
 
-.loginCard p{
-
-  text-align:center;
-
-  color:#cbd5e1;
-
-  margin-bottom:10px;
+.loginHeader p{
+  color:#64748b;
 }
 
-/* Inputs */
+.inputGroup{
+  margin-bottom:20px;
+}
 
-.loginCard input{
+.inputGroup label{
+  display:block;
+  margin-bottom:8px;
+  color:#1e293b;
+  font-weight:600;
+}
 
+.inputGroup input{
   width:100%;
 
   padding:16px;
 
-  border:none;
-
-  outline:none;
-
   border-radius:14px;
 
-  background:
-  rgba(255,255,255,0.07);
+  border:1px solid #dbeafe;
 
-  color:white;
+  background:#f8fafc;
 
-  font-size:17px;
+  font-size:15px;
 
-  border:
-  1px solid rgba(255,255,255,0.08);
-
-  transition:0.3s;
+  outline:none;
 }
 
-.loginCard input:focus{
-
-  border:
-  1px solid #3b82f6;
-
-  box-shadow:
-  0 0 15px rgba(59,130,246,0.5);
+.inputGroup input:focus{
+  border-color:#2563eb;
+  background:white;
 }
 
-/* Button */
+.loginOptions{
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:20px;
+}
 
-.loginCard button{
+.forgotText{
+  color:#2563eb;
+  font-weight:600;
+  cursor:pointer;
+}
 
-  margin-top:10px;
+.loginBtn{
+  width:100%;
+
+  border:none;
 
   padding:16px;
 
-  border:none;
+  border-radius:40px;
 
-  border-radius:14px;
-
-  background:
-  linear-gradient(
-    135deg,
-    #2563eb,
-    #7c3aed
-  );
+  background:#2563eb;
 
   color:white;
 
-  font-size:18px;
+  font-size:16px;
 
-  font-weight:bold;
+  font-weight:700;
 
   cursor:pointer;
-
-  transition:0.4s;
 }
 
-.loginCard button:hover{
-
-  transform:translateY(-3px);
-
-  box-shadow:
-  0 0 25px rgba(59,130,246,0.6);
+.loginBtn:hover{
+  background:#1d4ed8;
 }
 
-.registerText{
-
-  margin-top: 22px;
-
-  text-align: center;
-
-  font-size: 17px;
-
-  color: #d1d5db;
+.bottomText{
+  text-align:center;
+  margin-top:20px;
+  color:#64748b;
 }
 
-.registerText span{
-
-  color: #60a5fa;
-
-  margin-left: 8px;
-
-  cursor: pointer;
-
-  font-weight: bold;
-
-  transition: 0.3s;
-}
-
-.registerText span:hover{
-
-  color: #a855f7;
-}
-.forgotText{
-
-  margin-top: 18px;
-
-  color: #9db4ff;
-
-  cursor: pointer;
-
-  transition: 0.3s;
-}
-
-.forgotText:hover{
-
-  color: white;
-
-  text-decoration: underline;
-}
-
-.registerText{
-
-  margin-top: 20px;
-
-  color: #cbd5e1;
-
-  font-size: 15px;
-}
-
-.registerText span{
-
-  color: #60a5fa;
-
-  cursor: pointer;
-
-  font-weight: bold;
-
-  transition: 0.3s;
-}
-
-.registerText span:hover{
-
-  color: white;
-
-  text-decoration: underline;
+.bottomText span{
+  color:#2563eb;
+  font-weight:700;
+  cursor:pointer;
 }

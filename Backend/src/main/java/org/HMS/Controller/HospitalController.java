@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/hospital")
+@CrossOrigin("http://localhost:5173")
 public class HospitalController {
 
     @Autowired

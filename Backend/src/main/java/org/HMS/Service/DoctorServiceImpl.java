@@ -15,6 +15,12 @@ import java.util.List;
 @Service
 public class DoctorServiceImpl
         implements DoctorService {
+    @Override
+    public List<Doctor> getDoctorsByHospital(Long hospitalId) {
+
+        return doctorRepository
+                .findByHospitalHospitalId(hospitalId);
+    }
 
     @Autowired
     private DoctorRepository doctorRepository;

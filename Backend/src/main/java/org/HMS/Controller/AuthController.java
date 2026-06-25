@@ -136,36 +136,21 @@ public class AuthController {
             user.setRole(role);
 
             userRepository.save(user);
+            if (role.getRoleName().equals("ROLE_PATIENT")) {
 
-            Patient patient = new Patient();
+                Patient patient = new Patient();
 
-            patient.setUser(user);
+                patient.setUser(user);
 
-            patient.setFullName(
-                    request.getFullName()
-            );
+                patient.setFullName(request.getFullName());
+                patient.setPhone(request.getPhone());
+                patient.setAge(request.getAge());
+                patient.setGender(request.getGender());
+                patient.setBloodGroup(request.getBloodGroup());
+                patient.setAddress(request.getAddress());
 
-            patient.setPhone(
-                    request.getPhone()
-            );
-
-            patient.setAge(
-                    request.getAge()
-            );
-
-            patient.setGender(
-                    request.getGender()
-            );
-
-            patient.setBloodGroup(
-                    request.getBloodGroup()
-            );
-
-            patient.setAddress(
-                    request.getAddress()
-            );
-
-            patientRepository.save(patient);
+                patientRepository.save(patient);
+            }
 
             return ResponseEntity.ok(
                     "Registration Successful"
@@ -223,6 +208,15 @@ public class AuthController {
                             user.getEmail()
                     );
 
+            Long hospitalId = null;
+
+            if (user.getHospital() != null) {
+
+                hospitalId =
+                        user.getHospital()
+                                .getHospitalId();
+            }
+
             AuthResponse response =
                     new AuthResponse(
 
@@ -231,7 +225,9 @@ public class AuthController {
                             user.getEmail(),
 
                             user.getRole()
-                                    .getRoleName()
+                                    .getRoleName(),
+
+                            hospitalId
                     );
 
             return ResponseEntity.ok(
@@ -273,7 +269,7 @@ public class AuthController {
                 .body("Invalid OTP");
     }
 
-    //FORGOT PASSWORD SEND OTP
+    //forgot password send otp
 
     @PostMapping("/forgot-password/send-otp")
     public ResponseEntity<?> sendForgotPasswordOtp(

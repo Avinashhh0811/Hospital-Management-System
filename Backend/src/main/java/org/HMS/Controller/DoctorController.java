@@ -30,6 +30,13 @@ public class DoctorController {
         return doctorService.getAllDoctors();
     }
 
+    @GetMapping("/hospital/{hospitalId}")
+    public List<Doctor> getDoctorsByHospital(
+            @PathVariable Long hospitalId
+    ) {
+        return doctorService.getDoctorsByHospital(hospitalId);
+    }
+
     // Delete Doctor
     @DeleteMapping("/delete/{doctorId}")
     public String deleteDoctor(

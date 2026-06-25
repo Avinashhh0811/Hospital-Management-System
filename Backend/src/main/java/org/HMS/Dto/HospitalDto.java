@@ -10,8 +10,6 @@ public class HospitalDto {
 
     private String contactNumber;
 
-    private Long adminId;
-
     public HospitalDto() {
     }
 
@@ -45,13 +43,5 @@ public class HospitalDto {
 
     public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
-    }
-
-    public Long getAdminId() {
-        return adminId;
-    }
-
-    public void setAdminId(Long adminId) {
-        this.adminId = adminId;
     }
 }

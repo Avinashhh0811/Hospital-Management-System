@@ -8,17 +8,21 @@ public class AuthResponse {
 
     private String role;
 
+    private Long hospitalId;
+
     public AuthResponse() {
     }
 
     public AuthResponse(
             String token,
             String email,
-            String role
+            String role,
+            Long hospitalId
     ) {
         this.token = token;
         this.email = email;
         this.role = role;
+        this.hospitalId = hospitalId;
     }
 
     public String getToken() {
@@ -43,5 +47,13 @@ public class AuthResponse {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Long getHospitalId() {
+        return hospitalId;
+    }
+
+    public void setHospitalId(Long hospitalId) {
+        this.hospitalId = hospitalId;
     }
 }

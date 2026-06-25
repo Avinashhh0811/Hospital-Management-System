@@ -1,0 +1,84 @@
+.adminLoginContainer{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        rgba(255,255,255,0.88),
+        rgba(255,255,255,0.88)
+    ),
+    url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.adminLoginCard{
+    width:450px;
+
+    background:rgba(255,255,255,0.95);
+
+    backdrop-filter:blur(10px);
+
+    padding:40px;
+
+    border-radius:25px;
+
+    border:1px solid #dbeafe;
+
+    box-shadow:
+    0 20px 40px rgba(37,99,235,.15);
+
+    text-align:center;
+}
+
+.adminLoginCard h1{
+    color:#1d4ed8;
+    margin-bottom:10px;
+}
+
+.adminLoginCard p{
+    color:#64748b;
+    margin-bottom:25px;
+}
+
+.adminLoginCard input{
+    width:100%;
+    padding:14px;
+    margin-bottom:15px;
+
+    border:1px solid #dbeafe;
+    border-radius:12px;
+
+    outline:none;
+    box-sizing:border-box;
+}
+
+.adminLoginCard input:focus{
+    border-color:#2563eb;
+}
+
+.adminLoginCard button{
+    width:100%;
+    padding:14px;
+
+    border:none;
+    border-radius:12px;
+
+    background:#2563eb;
+
+    color:white;
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.adminLoginCard button:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
