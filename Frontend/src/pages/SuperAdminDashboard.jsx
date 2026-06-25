@@ -1,4 +1,4 @@
-import "./Dashboard.css";
+import "./SuperAdminDashboard.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -7,9 +7,7 @@ function SuperAdminDashboard() {
 
   const navigate = useNavigate();
   const [hospitalCount, setHospitalCount] = useState(0);
-  const [doctorCount, setDoctorCount] = useState(0);
-  const [patientCount, setPatientCount] = useState(0);
-  const [appointmentCount, setAppointmentCount] = useState(0);
+  const [adminCount, setAdminCount] = useState(0);
 
   const [recentHospitals, setRecentHospitals] = useState([]);
 
@@ -21,49 +19,36 @@ function SuperAdminDashboard() {
 
   const loadDashboardData = async () => {
 
-    try {
+      try {
 
-      const hospitalRes = await axios.get(
-        "http://localhost:8080/hospital/all"
-      );
+          const hospitalRes = await axios.get(
+              "http://localhost:8080/hospital/all"
+          );
 
-      setHospitalCount(
-        hospitalRes.data.length
-      );
+          setHospitalCount(hospitalRes.data.length);
+          setRecentHospitals(hospitalRes.data);
 
-      setRecentHospitals(
-        hospitalRes.data
-      );
+      } catch (e) {
 
-      const doctorRes = await axios.get(
-        "http://localhost:8080/doctor/all"
-      );
+          console.log("Hospital Error", e);
 
-      setDoctorCount(
-        doctorRes.data.length
-      );
+      }
+      try {
 
-      const patientRes = await axios.get(
-        "http://localhost:8080/patient/all"
-      );
+          const adminRes = await axios.get(
+              "http://localhost:8080/api/admin/all-hospital-admins"
+          );
 
-      setPatientCount(
-        patientRes.data.length
-      );
+          setAdminCount(adminRes.data.length);
 
-      const appointmentRes = await axios.get(
-        "http://localhost:8080/appointment/all"
-      );
+      } catch (e) {
 
-      setAppointmentCount(
-        appointmentRes.data.length
-      );
+          console.log("Admin Error", e);
 
-    } catch (error) {
+      }
 
-      console.error(error);
 
-    }
+
   };
 
   return (
@@ -87,36 +72,30 @@ function SuperAdminDashboard() {
           <h1>Welcome Avinash 👑</h1>
 
           <p>
-            Manage Hospitals, Doctors & Entire HMS Network
+            Manage Hospitals & Hospital Admins Across HMS Network
           </p>
 
         </div>
 
         {/* Stats */}
 
-        <div className="statsGrid">
 
-          <div className="statCard">
-            <h3>Total Hospitals</h3>
-            <h2>{hospitalCount}</h2>
+          <div className="statsGrid">
+              <div className="statCard">
+                  <h3>Total Hospitals</h3>
+                  <h2>{hospitalCount}</h2>
+              </div>
+
+              <div className="statCard">
+                  <h3>Hospital Admins</h3>
+                  <h2>{adminCount}</h2>
+              </div>
+
           </div>
 
-          <div className="statCard">
-            <h3>Total Doctors</h3>
-            <h2>{doctorCount}</h2>
-          </div>
 
-          <div className="statCard">
-            <h3>Total Patients</h3>
-            <h2>{patientCount}</h2>
-          </div>
 
-          <div className="statCard">
-            <h3>Appointments</h3>
-            <h2>{appointmentCount}</h2>
-          </div>
 
-        </div>
 
         {/* Quick Actions */}
 
@@ -128,9 +107,12 @@ function SuperAdminDashboard() {
 
           <div className="actionGrid">
 
-            <div className="actionCard">
-              🏥 Add Hospital
-            </div>
+           <div
+               className="actionCard"
+               onClick={() => navigate("/add-hospital")}
+           >
+               🏥 Add Hospital
+           </div>
 
            <div
                className="actionCard"
@@ -139,9 +121,7 @@ function SuperAdminDashboard() {
                📋 View Hospitals
            </div>
 
-            <div className="actionCard">
-              ❌ Delete Hospital
-            </div>
+
 
           </div>
 

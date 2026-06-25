@@ -1,5 +1,6 @@
 package org.HMS.Service;
 
+import org.HMS.Dto.AddHospitalResponseDto;
 import org.HMS.Dto.HospitalDto;
 import org.HMS.Entity.Hospital;
 
@@ -7,9 +8,9 @@ import java.util.List;
 
 public interface HospitalService {
 
-    String addHospital(HospitalDto dto);
+    AddHospitalResponseDto addHospital(HospitalDto dto);
 
-    List<Hospital> getAllHospitals();
+    List<HospitalDto> getAllHospitals();
 
     String deleteHospital(Long hospitalId);
 }

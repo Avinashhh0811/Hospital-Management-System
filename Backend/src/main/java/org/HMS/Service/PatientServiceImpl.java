@@ -5,15 +5,25 @@ import org.HMS.Dto.PatientDto;
 import org.HMS.Entity.Patient;
 import org.HMS.Entity.User;
 
+
 import org.HMS.Repository.PatientRepository;
 import org.HMS.Repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PatientServiceImpl
         implements PatientService {
+
+    @Override
+    public List<Patient> getAllPatients() {
+
+        return patientRepository.findAll();
+
+    }
 
     @Autowired
     private PatientRepository patientRepository;

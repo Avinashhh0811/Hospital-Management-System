@@ -1,10 +1,14 @@
 import "./ViewHospitals.css";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 
 function ViewHospitals() {
 
+
     const [hospitals, setHospitals] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
 
@@ -87,15 +91,12 @@ function ViewHospitals() {
 
                         <tr>
 
-                            <th>ID</th>
-
-                            <th>Name</th>
-
-                            <th>City</th>
-
-                            <th>Contact</th>
-
-                            <th>Action</th>
+                           <th>ID</th>
+                           <th>Name</th>
+                           <th>City</th>
+                           <th>Contact</th>
+                           <th>Status</th>
+                           <th>Action</th>
 
                         </tr>
 
@@ -104,61 +105,74 @@ function ViewHospitals() {
                         <tbody>
 
                         {
-
-                            hospitals.map((hospital)=>(
+                            hospitals.map((hospital) => (
 
                                 <tr key={hospital.hospitalId}>
 
+                                    <td>{hospital.hospitalId}</td>
+
+                                    <td>{hospital.hospitalName}</td>
+
+                                    <td>{hospital.city}</td>
+
+                                    <td>{hospital.contactNumber}</td>
+
                                     <td>
 
-                                        {hospital.hospitalId}
+                                        {
+                                            hospital.adminCreated ?
+
+                                            <span className="activeStatus">
+                                                🟢 Active
+                                            </span>
+
+                                            :
+
+                                            <span className="pendingStatus">
+                                                🟡 Admin Pending
+                                            </span>
+
+                                        }
 
                                     </td>
 
                                     <td>
 
-                                        {hospital.hospitalName}
+                                        {
+                                            !hospital.adminCreated && (
 
-                                    </td>
+                                                <button
+                                                    className="createAdminBtn"
+                                                    onClick={() =>
+                                                        navigate("/create-hospital-admin", {
+                                                            state: {
+                                                                hospitalId: hospital.hospitalId,
+                                                                hospitalName: hospital.hospitalName
+                                                            }
+                                                        })
+                                                    }
+                                                >
+                                                    Create Admin
+                                                </button>
 
-                                    <td>
+                                            )
+                                        }
 
-                                        {hospital.city}
+                                        <button
+                                            className="deleteBtn"
+                                            onClick={() => deleteHospital(hospital.hospitalId)}
+                                        >
+                                            Delete
+                                        </button>
 
-                                    </td>
-
-                                    <td>
-
-                                        {hospital.contactNumber}
-
-                                    </td>
-
-                                    <td>
-
-                                       <td>
-
-                                           <button className="editBtn">
-                                               Edit
-                                           </button>
-
-                                           <button
-                                               className="deleteBtn"
-                                               onClick={() => deleteHospital(hospital.hospitalId)}
-                                           >
-                                               Delete
-                                           </button>
-
-                                       </td>
                                     </td>
 
                                 </tr>
 
                             ))
-
                         }
 
                         </tbody>
-
                     </table>
 
                 </div>

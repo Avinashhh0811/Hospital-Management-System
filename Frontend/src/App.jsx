@@ -22,6 +22,7 @@ import AddPatient from "./pages/AddPatient.jsx";
 import ProtectedRoute from "./pages/ProtectedRoute.jsx";
 
 import NotFound from "./pages/NotFound.jsx";
+
 import ForgotPassword from "./pages/ForgotPassword";
 
 import AdminLogin from "./pages/AdminLogin";
@@ -33,7 +34,10 @@ import SuperAdminLogin from "./pages/SuperAdminLogin";
 import SuperAdminDashboard from "./pages/SuperAdminDashboard";
 
 import AddHospital from "./pages/AddHospital";
+
 import ViewHospitals from "./pages/ViewHospitals";
+
+import CreateHospitalAdmin from "./pages/CreateHospitalAdmin";
 
 function App() {
 
@@ -194,6 +198,17 @@ function App() {
                         <ProtectedRoute>
 
                             <ViewHospitals/>
+
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/create-hospital-admin"
+                    element={
+                        <ProtectedRoute>
+
+                            <CreateHospitalAdmin/>
 
                         </ProtectedRoute>
                     }

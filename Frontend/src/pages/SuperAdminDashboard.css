@@ -1,77 +1,296 @@
-.superAdminContainer{
+/*
+   SUPER ADMIN DASHBOARD
+ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#eef4ff;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.dashboard{
+
     min-height:100vh;
-    background:#f5f7fb;
-    padding:40px;
-}
 
-.superAdminHeader{
-    text-align:center;
-    margin-bottom:40px;
-}
+    background:#eef4ff;
 
-.superAdminHeader h1{
-    color:#1e3a8a;
-    margin-bottom:10px;
-}
-
-.superAdminHeader p{
-    color:gray;
-}
-
-.dashboardGrid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.dashboardCard{
-    background:white;
-    border-radius:20px;
     padding:35px;
-    text-align:center;
-    cursor:pointer;
 
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-
-    transition:0.3s;
 }
 
-.dashboardCard:hover{
+.mainContent{
+
+    width:100%;
+
+}
+
+/* Welcome Card */
+
+.welcomeCard{
+
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    color:white;
+
+    margin-bottom:30px;
+
+    box-shadow:0 15px 35px rgba(79,70,229,.25);
+
+}
+
+.welcomeBadge{
+
+    display:inline-block;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.18);
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+
+}
+
+.welcomeCard h1{
+
+    font-size:50px;
+
+    margin-bottom:12px;
+
+}
+
+.welcomeCard p{
+
+    font-size:20px;
+
+    opacity:.95;
+
+}
+
+/*  Stats */
+
+.statsGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+    margin-bottom:30px;
+
+}
+
+.statCard{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:22px;
+    min-height:140px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.statCard:hover{
+
     transform:translateY(-5px);
+
 }
 
-.dashboardCard h2{
+.statCard h3{
+
+    color:#64748b;
+
+    font-size:18px;
+
+    margin-bottom:15px;
+
+}
+
+.statCard h2{
+
+    color:#2563eb;
+
     font-size:45px;
-}
-
-.dashboardCard h3{
     margin-top:15px;
-    color:#1e3a8a;
-}
-.actionCard{
-  background:#eff6ff;
-  border:1px solid #dbeafe;
-  border-radius:16px;
-  padding:22px;
-  font-weight:600;
-  cursor:pointer;
-  transition:.3s;
-  text-align:center;
+
+        font-size:50px;
+
 }
 
-.actionCard:hover{
-  background:linear-gradient(
-      135deg,
-      #4f46e5,
-      #7c3aed
-  );
+/* Sections */
 
-  color:white;
+.quickSection{
 
-  transform:translateY(-5px);
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
 }
 
 .quickSection h2{
-  font-size:28px;
-  color:#0f172a;
+
+    color:#0f172a;
+
+    font-size:30px;
+
+    margin-bottom:25px;
+
+}
+
+/*  Quick Actions */
+
+.actionGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+.actionCard{
+
+    background:#eff6ff;
+
+    border:1px solid #dbeafe;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.actionCard:hover{
+
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+
+    color:white;
+
+    transform:translateY(-6px);
+
+    box-shadow:0 10px 25px rgba(79,70,229,.30);
+
+}
+
+/*  Table  */
+
+.recentTable{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.recentTable thead{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.recentTable th{
+
+    padding:16px;
+
+    text-align:left;
+
+}
+
+.recentTable td{
+
+    padding:16px;
+
+    border-bottom:1px solid #e5e7eb;
+
+}
+
+.recentTable tbody tr:hover{
+
+    background:#f8fbff;
+
+}
+
+/*  Responsive */
+
+@media(max-width:1100px){
+
+    .actionGrid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .statsGrid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .actionGrid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .welcomeCard{
+
+        padding:30px;
+
+    }
+
+    .welcomeCard h1{
+
+        font-size:35px;
+
+    }
+
+    .welcomeCard p{
+
+        font-size:16px;
+
+    }
+
 }

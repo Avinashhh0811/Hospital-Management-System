@@ -1,5 +1,6 @@
 package org.HMS.Controller;
 
+import org.HMS.Dto.AddHospitalResponseDto;
 import org.HMS.Dto.HospitalDto;
 import org.HMS.Entity.Hospital;
 import org.HMS.Service.HospitalService;
@@ -18,7 +19,7 @@ public class HospitalController {
 
     // Add Hospital
     @PostMapping("/add")
-    public String addHospital(
+    public AddHospitalResponseDto addHospital(
             @RequestBody HospitalDto dto) {
 
         return hospitalService
@@ -27,7 +28,7 @@ public class HospitalController {
 
     // Get All Hospitals
     @GetMapping("/all")
-    public List<Hospital> getAllHospitals() {
+    public List<HospitalDto> getAllHospitals() {
 
         return hospitalService
                 .getAllHospitals();

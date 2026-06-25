@@ -1,5 +1,6 @@
 package org.HMS.Service;
 
+import org.HMS.Dto.AddHospitalResponseDto;
 import org.HMS.Dto.HospitalDto;
 import org.HMS.Entity.Hospital;
 import org.HMS.Repository.HospitalRepository;
@@ -7,6 +8,7 @@ import org.HMS.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,8 +20,9 @@ public class HospitalServiceImpl implements HospitalService {
     @Autowired
     private UserRepository userRepository;
 
+
     @Override
-    public String addHospital(HospitalDto dto) {
+    public AddHospitalResponseDto addHospital(HospitalDto dto) {
 
         try {
 
@@ -30,21 +33,95 @@ public class HospitalServiceImpl implements HospitalService {
             hospital.setCity(dto.getCity());
             hospital.setContactNumber(dto.getContactNumber());
 
-            hospitalRepository.save(hospital);
+            hospital.setRegistrationNumber(dto.getRegistrationNumber());
 
-            return "Hospital Added Successfully";
+            hospital.setHospitalType(dto.getHospitalType());
+
+            hospital.setState(dto.getState());
+
+            hospital.setPincode(dto.getPincode());
+
+            hospital.setEmail(dto.getEmail());
+
+            hospital.setWebsite(dto.getWebsite());
+
+            Hospital savedHospital =
+                    hospitalRepository.save(hospital);
+
+            return new AddHospitalResponseDto(
+
+                    savedHospital.getHospitalId(),
+
+                    savedHospital.getHospitalName(),
+
+                    "Hospital Added Successfully"
+
+            );
 
         } catch (Exception e) {
 
             e.printStackTrace();
 
-            return "Error : " + e.getMessage();
+            return new AddHospitalResponseDto(
+
+                    null,
+
+                    null,
+
+                    "Error : " + e.getMessage()
+
+            );
         }
     }
 
     @Override
-    public List<Hospital> getAllHospitals() {
-        return hospitalRepository.findAll();
+    public List<HospitalDto> getAllHospitals() {
+
+        List<Hospital> hospitals =
+                hospitalRepository.findAll();
+
+        List<HospitalDto> list =
+                new ArrayList<>();
+
+        for(Hospital hospital : hospitals){
+
+            HospitalDto dto =
+                    new HospitalDto();
+
+            dto.setHospitalId(
+                    hospital.getHospitalId()
+            );
+
+            dto.setHospitalName(
+                    hospital.getHospitalName()
+            );
+
+            dto.setCity(
+                    hospital.getCity()
+            );
+
+            dto.setContactNumber(
+                    hospital.getContactNumber()
+            );
+
+            dto.setAddress(
+                    hospital.getAddress()
+            );
+
+            dto.setAdminCreated(
+
+                    userRepository.existsByHospital(
+                            hospital
+                    )
+
+            );
+
+            list.add(dto);
+
+        }
+
+        return list;
+
     }
 
     @Override

@@ -14,6 +14,7 @@ public interface UserRepository
 
     boolean existsByEmail(String email);
 
+
     boolean existsByHospital(Hospital hospital);
     List<User> findByRoleRoleName(String roleName);
 
