@@ -42,4 +42,28 @@ public class HospitalController {
         return hospitalService
                 .deleteHospital(hospitalId);
     }
+    // Update Hospital
+
+    @PutMapping("/update/{hospitalId}")
+    public String updateHospital(
+
+            @PathVariable Long hospitalId,
+
+            @RequestBody HospitalDto dto
+
+    ) {
+
+        return hospitalService
+                .updateHospital(
+                        hospitalId,
+                        dto
+                );
+
+    }
+    @GetMapping("/{hospitalId}")
+    public HospitalDto getHospitalById(
+            @PathVariable Long hospitalId
+    ){
+        return hospitalService.getHospitalById(hospitalId);
+    }
 }

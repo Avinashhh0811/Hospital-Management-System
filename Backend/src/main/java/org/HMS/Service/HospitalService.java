@@ -13,4 +13,8 @@ public interface HospitalService {
     List<HospitalDto> getAllHospitals();
 
     String deleteHospital(Long hospitalId);
+    String updateHospital(
+            Long hospitalId, HospitalDto dto
+    );
+    HospitalDto getHospitalById(Long hospitalId);
 }

@@ -72,17 +72,15 @@ body{
 
 .tableCard{
 
+    margin-top:10px;
+
     background:white;
 
-    border-radius:20px;
+    border-radius:18px;
 
     padding:25px;
 
-    border:1px solid #e2e8f0;
-
-    box-shadow:0 15px 35px rgba(37,99,235,.08);
-
-    overflow-x:auto;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
 
 }
 
@@ -143,19 +141,45 @@ body{
  */
 
 .editBtn{
+
     background:#2563eb;
+
     color:white;
+
     border:none;
-    padding:8px 16px;
-    border-radius:8px;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    font-weight:600;
+
     cursor:pointer;
-    margin-right:10px;
-    font-weight:bold;
+
+    min-width:100px;
+
+    margin-right:12px;
+
     transition:.3s;
+
 }
 
 .editBtn:hover{
+
     background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 20px rgba(37,99,235,.25);
+
+}
+
+.editBtn:active{
+
+    transform:scale(.98);
+
 }
 
 .deleteBtn{
@@ -269,25 +293,30 @@ body{
 
 @media(max-width:768px){
 
-    .topBar{
-        flex-direction:column;
-        gap:15px;
-        align-items:flex-start;
-    }
-
-   .searchBox{
-
-       width:360px;
-
-       padding:14px 18px;
-
-       border-radius:12px;
-
-       border:1px solid #d1d5db;
-
-       font-size:15px;
-
+   .topBar{
+       display:flex;
+       justify-content:space-between;
+       align-items:center;
+       margin-bottom:35px;
    }
+
+  .searchBox{
+
+      width:420px;
+
+      height:58px;
+
+      padding:15px 22px;
+
+      border-radius:12px;
+
+      border:1px solid #d6d6d6;
+
+      font-size:17px;
+
+      outline:none;
+
+  }
 
     .headerCard h1{
         font-size:28px;

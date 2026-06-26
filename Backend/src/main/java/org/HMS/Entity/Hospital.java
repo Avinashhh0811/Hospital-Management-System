@@ -2,6 +2,10 @@ package org.HMS.Entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
+
+
 @Entity
 @Table(name = "hospitals")
 public class Hospital {
@@ -30,6 +34,11 @@ public class Hospital {
     private String email;
 
     private String website;
+
+
+
+    @OneToMany(mappedBy = "hospital")
+    private List<Staff> staffList;
 
     public Hospital() {
     }
@@ -120,5 +129,13 @@ public class Hospital {
 
     public void setWebsite(String website) {
         this.website = website;
+    }
+
+    public List<Staff> getStaffList() {
+        return staffList;
+    }
+
+    public void setStaffList(List<Staff> staffList) {
+        this.staffList = staffList;
     }
 }

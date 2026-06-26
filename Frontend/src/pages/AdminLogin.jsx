@@ -5,101 +5,146 @@ import axios from "axios";
 
 function AdminLogin() {
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
 
-  const handleLogin = async (e) => {
+    const [password, setPassword] = useState("");
 
-    e.preventDefault();
+    const handleLogin = async (e) => {
 
-    try {
+        e.preventDefault();
+        localStorage.clear();
 
-      const response = await axios.post(
-        "http://localhost:8080/api/auth/login",
-        {
-          email,
-          password
+        try {
+
+            const response = await axios.post(
+
+                "http://localhost:8080/api/auth/login",
+
+                {
+
+                    email,
+
+                    password
+
+                }
+
+            );
+
+            localStorage.setItem(
+                "token",
+                response.data.token
+            );
+
+            localStorage.setItem(
+                "email",
+                response.data.email
+            );
+
+            localStorage.setItem(
+                "role",
+                response.data.role
+            );
+
+            localStorage.setItem(
+                "hospitalId",
+                response.data.hospitalId
+            );
+
+            localStorage.setItem(
+                "hospitalName",
+                response.data.hospitalName
+            );
+
+            if (
+                response.data.role ===
+                "ROLE_HOSPITAL_ADMIN"
+            ) {
+
+                navigate("/admin-dashboard");
+
+            } else {
+
+                alert("Access Denied");
+
+            }
+
+        } catch (error) {
+
+            console.log(error);
+
+           alert(
+               error.response?.data ||
+               "Invalid Email or Password"
+           );
+
         }
-      );
 
-      localStorage.setItem(
-        "token",
-        response.data.token
-      );
+    };
 
-      localStorage.setItem(
-        "email",
-        response.data.email
-      );
+    return (
 
-      localStorage.setItem(
-        "role",
-        response.data.role
-      );
+        <div className="adminLoginContainer">
 
-     if (
-       response.data.role ===
-       "ROLE_HOSPITAL_ADMIN"
-     ) {
-       navigate("/admin-dashboard");
-     }
+            <div className="adminLoginCard">
 
-       else {
+                <h1>
+                    🏥 Hospital Admin Login
+                </h1>
 
-        alert("Access Denied");
-      }
+                <p>
+                    Manage Doctors, Employees & Appointments
+                </p>
 
-    } catch (error) {
+                <form onSubmit={handleLogin}>
 
-      console.log(error);
-      alert("Invalid Credentials");
-    }
-  };
+                    <input
 
-  return (
+                        type="email"
 
-    <div className="adminLoginContainer">
+                        placeholder="Enter Email"
 
-      <div className="adminLoginCard">
+                        value={email}
 
-        <h1>👑 Super Admin Login</h1>
+                        onChange={(e) =>
+                            setEmail(e.target.value)
+                        }
 
-        <p>
-          Manage Hospitals & HMS Platform
-        </p>
+                        required
 
-        <form onSubmit={handleLogin}>
+                    />
 
-          <input
-            type="email"
-            placeholder="Enter Email"
-            value={email}
-            onChange={(e) =>
-              setEmail(e.target.value)
-            }
-          />
+                    <input
 
-          <input
-            type="password"
-            placeholder="Enter Password"
-            value={password}
-            onChange={(e) =>
-              setPassword(e.target.value)
-            }
-          />
+                        type="password"
 
-          <button type="submit">
-            Login
-          </button>
+                        placeholder="Enter Password"
 
-        </form>
+                        value={password}
 
-      </div>
+                        onChange={(e) =>
+                            setPassword(e.target.value)
+                        }
 
-    </div>
-  );
+                        required
+
+                    />
+
+                    <button type="submit">
+
+                        Login
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    );
+
 }
 
 export default AdminLogin;

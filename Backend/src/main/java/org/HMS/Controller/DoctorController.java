@@ -56,4 +56,14 @@ public class DoctorController {
         return doctorService
                 .updateDoctor(doctorId, dto);
     }
+
+    @GetMapping("/count/{hospitalId}")
+    public long doctorCount(
+            @PathVariable Long hospitalId
+    ){
+
+        return doctorService
+                .doctorCount(hospitalId);
+
+    }
 }

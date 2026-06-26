@@ -1,0 +1,166 @@
+.editHospitalContainer{
+
+    min-height:100vh;
+
+    background:#f4f7fc;
+
+    padding:40px;
+
+}
+
+.editCard{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    overflow:hidden;
+
+}
+
+.editHeader{
+
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+
+    color:white;
+
+    padding:35px;
+
+}
+
+.editHeader h1{
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+}
+
+.editHeader p{
+
+    opacity:.9;
+
+    font-size:16px;
+
+}
+
+form{
+
+    padding:35px;
+
+}
+
+.formGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.formGrid input{
+
+    padding:14px 18px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.formGrid input:focus{
+
+    outline:none;
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 8px rgba(37,99,235,.2);
+
+}
+
+.updateBtn{
+
+    margin-top:35px;
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.updateBtn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 25px rgba(37,99,235,.3);
+
+}
+
+.backBtn{
+
+    margin:25px 35px 0;
+
+    background:#eef2ff;
+
+    color:#2563eb;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.backBtn:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+@media(max-width:768px){
+
+    .formGrid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+

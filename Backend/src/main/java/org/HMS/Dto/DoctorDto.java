@@ -12,7 +12,20 @@ public class DoctorDto {
 
     private Long hospitalId;
 
-    private Long userId;
+
+    private String qualification;
+
+    private String phone;
+
+    private String email;
+
+    private String gender;
+
+    private String opdTiming;
+
+    private boolean active = true;
+
+
 
     public DoctorDto() {
     }
@@ -57,11 +70,52 @@ public class DoctorDto {
         this.hospitalId = hospitalId;
     }
 
-    public Long getUserId() {
-        return userId;
+    public String getQualification() {
+        return qualification;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
     }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getOpdTiming() {
+        return opdTiming;
+    }
+
+    public void setOpdTiming(String opdTiming) {
+        this.opdTiming = opdTiming;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
 }

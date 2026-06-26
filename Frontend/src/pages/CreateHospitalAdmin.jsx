@@ -50,7 +50,7 @@ function CreateHospitalAdmin() {
 
             alert(response.data);
 
-            navigate("/view-hospital-admins");
+            navigate("/view-hospitals");
 
         }
 

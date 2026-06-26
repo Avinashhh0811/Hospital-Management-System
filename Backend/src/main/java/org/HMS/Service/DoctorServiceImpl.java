@@ -28,8 +28,13 @@ public class DoctorServiceImpl
     @Autowired
     private HospitalRepository hospitalRepository;
 
-    @Autowired
-    private UserRepository userRepository;
+    @Override
+    public long doctorCount(Long hospitalId){
+
+        return doctorRepository
+                .countByHospitalHospitalId(hospitalId);
+
+    }
 
     @Override
     public String addDoctor(DoctorDto dto) {
@@ -41,10 +46,7 @@ public class DoctorServiceImpl
                         new RuntimeException("Hospital Not Found"));
 
         // Find User
-        User user = userRepository
-                .findById(dto.getUserId())
-                .orElseThrow(() ->
-                        new RuntimeException("User Not Found"));
+
 
         // Create Doctor
         Doctor doctor = new Doctor();
@@ -63,7 +65,17 @@ public class DoctorServiceImpl
 
         doctor.setHospital(hospital);
 
-        doctor.setUser(user);
+        doctor.setQualification(dto.getQualification());
+
+        doctor.setPhone(dto.getPhone());
+
+        doctor.setEmail(dto.getEmail());
+
+        doctor.setGender(dto.getGender());
+
+        doctor.setOpdTiming(dto.getOpdTiming());
+
+
 
         // Save Doctor
         doctorRepository.save(doctor);
@@ -106,11 +118,7 @@ public class DoctorServiceImpl
                 .orElseThrow(() ->
                         new RuntimeException("Hospital Not Found"));
 
-        // Find User
-        User user = userRepository
-                .findById(dto.getUserId())
-                .orElseThrow(() ->
-                        new RuntimeException("User Not Found"));
+
 
         // Update Doctor
         doctor.setDoctorName(
@@ -127,7 +135,17 @@ public class DoctorServiceImpl
 
         doctor.setHospital(hospital);
 
-        doctor.setUser(user);
+        doctor.setQualification(dto.getQualification());
+
+        doctor.setPhone(dto.getPhone());
+
+        doctor.setEmail(dto.getEmail());
+
+        doctor.setGender(dto.getGender());
+
+        doctor.setOpdTiming(dto.getOpdTiming());
+
+
 
         // Save Updated Doctor
         doctorRepository.save(doctor);

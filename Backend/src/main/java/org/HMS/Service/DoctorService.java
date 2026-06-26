@@ -16,4 +16,5 @@ DoctorService {
     String deleteDoctor(Long doctorId);
 
     String updateDoctor(Long doctorId, DoctorDto dto);
+    long doctorCount(Long hospitalId);
 }

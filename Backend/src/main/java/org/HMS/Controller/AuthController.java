@@ -178,23 +178,15 @@ public class AuthController {
         try {
 
             User user = userRepository
-                    .findByEmail(
-                            request.getEmail()
-                    )
+                    .findByEmail(request.getEmail())
                     .orElseThrow(() ->
-
-                            new RuntimeException(
-                                    "Invalid Email"
-                            )
+                            new RuntimeException("Invalid Email")
                     );
 
-            boolean match =
-                    passwordEncoder.matches(
-
-                            request.getPassword(),
-
-                            user.getPassword()
-                    );
+            boolean match = passwordEncoder.matches(
+                    request.getPassword(),
+                    user.getPassword()
+            );
 
             if (!match) {
 
@@ -203,42 +195,42 @@ public class AuthController {
                         .body("Invalid Password");
             }
 
-            String token =
-                    jwtService.generateToken(
-                            user.getEmail()
-                    );
+            String token = jwtService.generateToken(
+                    user.getEmail()
+            );
 
             Long hospitalId = null;
+            String hospitalName = null;
 
             if (user.getHospital() != null) {
 
-                hospitalId =
-                        user.getHospital()
-                                .getHospitalId();
+                hospitalId = user.getHospital().getHospitalId();
+                hospitalName = user.getHospital().getHospitalName();
+
             }
 
-            AuthResponse response =
-                    new AuthResponse(
+            AuthResponse response = new AuthResponse(
 
-                            token,
+                    token,
 
-                            user.getEmail(),
+                    user.getEmail(),
 
-                            user.getRole()
-                                    .getRoleName(),
+                    user.getRole().getRoleName(),
 
-                            hospitalId
-                    );
+                    hospitalId,
 
-            return ResponseEntity.ok(
-                    response
+                    hospitalName
+
             );
+
+            return ResponseEntity.ok(response);
 
         } catch (Exception e) {
 
             return ResponseEntity
                     .badRequest()
                     .body(e.getMessage());
+
         }
     }
 

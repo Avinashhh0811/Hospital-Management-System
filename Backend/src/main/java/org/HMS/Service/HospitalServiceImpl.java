@@ -75,6 +75,68 @@ public class HospitalServiceImpl implements HospitalService {
     }
 
     @Override
+    public String updateHospital(
+            Long hospitalId,
+            HospitalDto dto
+    ) {
+
+        Hospital hospital =
+                hospitalRepository
+                        .findById(hospitalId)
+                        .orElseThrow(() ->
+                                new RuntimeException(
+                                        "Hospital Not Found"
+                                )
+                        );
+
+        hospital.setHospitalName(
+                dto.getHospitalName()
+        );
+
+        hospital.setAddress(
+                dto.getAddress()
+        );
+
+        hospital.setCity(
+                dto.getCity()
+        );
+
+        hospital.setContactNumber(
+                dto.getContactNumber()
+        );
+
+        hospital.setRegistrationNumber(
+                dto.getRegistrationNumber()
+        );
+
+        hospital.setHospitalType(
+                dto.getHospitalType()
+        );
+
+        hospital.setState(
+                dto.getState()
+        );
+
+        hospital.setPincode(
+                dto.getPincode()
+        );
+
+        hospital.setEmail(
+                dto.getEmail()
+        );
+
+        hospital.setWebsite(
+                dto.getWebsite()
+        );
+
+        hospitalRepository.save(
+                hospital
+        );
+
+        return "Hospital Updated Successfully";
+    }
+
+    @Override
     public List<HospitalDto> getAllHospitals() {
 
         List<Hospital> hospitals =
@@ -142,5 +204,30 @@ public class HospitalServiceImpl implements HospitalService {
         hospitalRepository.delete(hospital);
 
         return "Hospital Deleted Successfully";
+    }
+
+    @Override
+    public HospitalDto getHospitalById(Long hospitalId) {
+
+        Hospital hospital = hospitalRepository
+                .findById(hospitalId)
+                .orElseThrow(() ->
+                        new RuntimeException("Hospital Not Found"));
+
+        HospitalDto dto = new HospitalDto();
+
+        dto.setHospitalId(hospital.getHospitalId());
+        dto.setHospitalName(hospital.getHospitalName());
+        dto.setAddress(hospital.getAddress());
+        dto.setCity(hospital.getCity());
+        dto.setContactNumber(hospital.getContactNumber());
+        dto.setRegistrationNumber(hospital.getRegistrationNumber());
+        dto.setHospitalType(hospital.getHospitalType());
+        dto.setState(hospital.getState());
+        dto.setPincode(hospital.getPincode());
+        dto.setEmail(hospital.getEmail());
+        dto.setWebsite(hospital.getWebsite());
+
+        return dto;
     }
 }

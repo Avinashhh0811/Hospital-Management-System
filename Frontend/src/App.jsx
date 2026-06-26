@@ -27,7 +27,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 
 import AdminLogin from "./pages/AdminLogin";
 
-import AdminDashboard from "./pages/AdminDashboard";
+import HospitalAdminDashboard from "./pages/HospitalAdminDashboard";
 
 import SuperAdminLogin from "./pages/SuperAdminLogin";
 
@@ -38,6 +38,12 @@ import AddHospital from "./pages/AddHospital";
 import ViewHospitals from "./pages/ViewHospitals";
 
 import CreateHospitalAdmin from "./pages/CreateHospitalAdmin";
+
+import EditHospital from "./pages/EditHospital";
+
+import AddDoctor from "./pages/AddDoctor";
+
+import ViewDoctors from "./pages/ViewDoctors";
 
 function App() {
 
@@ -73,10 +79,8 @@ function App() {
                 <Route
                     path="/dashboard"
                     element={
-                        <ProtectedRoute>
-
+                        <ProtectedRoute allowedRole="ROLE_USER">
                             <Dashboard />
-
                         </ProtectedRoute>
                     }
                 />
@@ -157,8 +161,8 @@ function App() {
                 <Route
                     path="/admin-dashboard"
                     element={
-                        <ProtectedRoute>
-                            <AdminDashboard />
+                        <ProtectedRoute allowedRole="ROLE_HOSPITAL_ADMIN">
+                            <HospitalAdminDashboard/>
                         </ProtectedRoute>
                     }
                 />
@@ -175,7 +179,7 @@ function App() {
                 <Route
                     path="/super-admin-dashboard"
                     element={
-                        <ProtectedRoute>
+                        <ProtectedRoute allowedRole="ROLE_SUPER_ADMIN">
                             <SuperAdminDashboard />
                         </ProtectedRoute>
                     }
@@ -186,7 +190,7 @@ function App() {
                 <Route
                     path="/add-hospital"
                     element={
-                        <ProtectedRoute>
+                        <ProtectedRoute allowedRole="ROLE_SUPER_ADMIN">
                             <AddHospital />
                         </ProtectedRoute>
                     }
@@ -195,10 +199,8 @@ function App() {
                 <Route
                     path="/view-hospitals"
                     element={
-                        <ProtectedRoute>
-
-                            <ViewHospitals/>
-
+                        <ProtectedRoute allowedRole="ROLE_SUPER_ADMIN">
+                            <ViewHospitals />
                         </ProtectedRoute>
                     }
                 />
@@ -206,10 +208,36 @@ function App() {
                 <Route
                     path="/create-hospital-admin"
                     element={
-                        <ProtectedRoute>
+                        <ProtectedRoute allowedRole="ROLE_SUPER_ADMIN">
+                            <CreateHospitalAdmin />
+                        </ProtectedRoute>
+                    }
+                />
 
-                            <CreateHospitalAdmin/>
+                <Route
+                    path="/edit-hospital/:hospitalId"
+                    element={
+                        <ProtectedRoute allowedRole="ROLE_SUPER_ADMIN">
+                            <EditHospital/>
+                        </ProtectedRoute>
+                    }
+                />
 
+                <Route
+                    path="/add-doctor"
+                    element={
+                        <ProtectedRoute allowedRole="ROLE_HOSPITAL_ADMIN">
+                            <AddDoctor/>
+                        </ProtectedRoute>
+                    }
+                />
+
+
+                <Route
+                    path="/view-doctors"
+                    element={
+                        <ProtectedRoute allowedRole="ROLE_HOSPITAL_ADMIN">
+                            <ViewDoctors/>
                         </ProtectedRoute>
                     }
                 />
