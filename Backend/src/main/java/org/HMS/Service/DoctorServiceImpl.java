@@ -39,6 +39,21 @@ public class DoctorServiceImpl
     @Override
     public String addDoctor(DoctorDto dto) {
 
+        if (doctorRepository.existsByEmail(dto.getEmail())) {
+
+            throw new RuntimeException(
+                    "Doctor Email Already Exists"
+            );
+
+        }
+        if (doctorRepository.existsByPhone(dto.getPhone())) {
+
+            throw new RuntimeException(
+                    "Doctor Phone Already Exists"
+            );
+
+        }
+
         // Find Hospital
         Hospital hospital = hospitalRepository
                 .findById(dto.getHospitalId())
@@ -152,4 +167,13 @@ public class DoctorServiceImpl
 
         return "Doctor Updated Successfully";
     }
+    @Override
+    public Doctor getDoctorById(Long doctorId) {
+
+        return doctorRepository
+                .findById(doctorId)
+                .orElseThrow(() ->
+                        new RuntimeException("Doctor Not Found"));
+    }
+
 }

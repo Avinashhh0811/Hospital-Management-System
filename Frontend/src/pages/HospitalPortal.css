@@ -1,0 +1,103 @@
+.portalContainer{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#f4f7fb;
+
+}
+
+.portalCard{
+
+    width:500px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+    text-align:center;
+
+}
+
+.portalCard h1{
+
+    color:#2563eb;
+
+    margin-bottom:10px;
+
+}
+
+.portalCard p{
+
+    color:#666;
+
+    margin-bottom:35px;
+
+}
+
+.portalBox{
+
+    border:2px solid #2563eb;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.portalBox:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+    transform:translateY(-5px);
+
+}
+
+.portalBox h2{
+
+    font-size:45px;
+
+}
+
+.portalBox button{
+
+    margin-top:15px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 30px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+.portalBox:hover button{
+
+    background:white;
+
+    color:#2563eb;
+
+}

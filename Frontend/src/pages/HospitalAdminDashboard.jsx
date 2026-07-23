@@ -1,10 +1,37 @@
 import "./HospitalAdminDashboard.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function HospitalAdminDashboard() {
 
     const navigate = useNavigate();
+
+    const loadDashboard = async () => {
+
+        try{
+
+            const hospitalId =
+                localStorage.getItem("hospitalId");
+
+            const response =
+                await axios.get(
+
+                    `http://localhost:8080/dashboard/${hospitalId}`
+
+                );
+
+            setDashboard(response.data);
+
+        }
+
+        catch(error){
+
+            console.log(error);
+
+        }
+
+    };
 
     const hospitalName =
         localStorage.getItem("hospitalName");
@@ -43,14 +70,11 @@ function HospitalAdminDashboard() {
     const [tomorrowAppointments, setTomorrowAppointments] =
         useState([]);
 
-    useEffect(() => {
+   useEffect(() => {
 
-        // Backend API
-        // loadDashboard();
-        // loadTodayAppointments();
-        // loadTomorrowAppointments();
+       loadDashboard();
 
-    }, []);
+   }, []);
 
     const logout = () => {
 

@@ -7,6 +7,7 @@ import {
 import Home from "./pages/Home.jsx";
 
 import Login from "./pages/Login.jsx";
+
 import Register from "./pages/Register.jsx";
 
 import Dashboard from "./pages/Dashboard.jsx";
@@ -45,6 +46,10 @@ import AddDoctor from "./pages/AddDoctor";
 
 import ViewDoctors from "./pages/ViewDoctors";
 
+import EditDoctor from "./pages/EditDoctor";
+
+import HospitalPortal from "./pages/HospitalPortal";
+
 function App() {
 
     return (
@@ -79,7 +84,7 @@ function App() {
                 <Route
                     path="/dashboard"
                     element={
-                        <ProtectedRoute allowedRole="ROLE_USER">
+                        <ProtectedRoute allowedRole="ROLE_PATIENT">
                             <Dashboard />
                         </ProtectedRoute>
                     }
@@ -240,6 +245,20 @@ function App() {
                             <ViewDoctors/>
                         </ProtectedRoute>
                     }
+                />
+
+                <Route
+                    path="/edit-doctor/:doctorId"
+                    element={
+                        <ProtectedRoute allowedRole="ROLE_HOSPITAL_ADMIN">
+                            <EditDoctor />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/hospital-portal"
+                    element={<HospitalPortal />}
                 />
 
             </Routes>

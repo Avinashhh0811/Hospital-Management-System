@@ -119,13 +119,13 @@ const Home = () => {
           <motion.div
             whileHover={{ scale: 1.03 }}
             className="portal admin"
-            onClick={() => navigate("/admin-login")}
+            onClick={() => navigate("/hospital-portal")}
           >
             <div className="icon-box">
               <FaUserMd className="icon" />
             </div>
 
-           <h3>Hospital Portal</h3>
+           <h3>Hospital Login</h3>
 
            <p>
 

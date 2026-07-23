@@ -1,9 +1,12 @@
 import "./ViewDoctors.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 function ViewDoctors() {
+
+    const navigate = useNavigate();
 
     const [doctors, setDoctors] = useState([]);
 
@@ -134,13 +137,14 @@ function ViewDoctors() {
 
                                 <td>
 
-                                    <button
-                                        className="editBtn"
-                                    >
-
-                                        Edit
-
-                                    </button>
+                                  <button
+                                      className="editBtn"
+                                      onClick={() =>
+                                          navigate(`/edit-doctor/${doctor.doctorId}`)
+                                      }
+                                  >
+                                      Edit
+                                  </button>
 
                                     <button
                                         className="deleteBtn"

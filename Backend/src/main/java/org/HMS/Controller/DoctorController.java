@@ -66,4 +66,11 @@ public class DoctorController {
                 .doctorCount(hospitalId);
 
     }
+
+    @GetMapping("/{doctorId}")
+    public Doctor getDoctorById(
+            @PathVariable Long doctorId
+    ) {
+        return doctorService.getDoctorById(doctorId);
+    }
 }

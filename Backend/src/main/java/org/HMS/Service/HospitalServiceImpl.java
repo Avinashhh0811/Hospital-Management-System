@@ -23,16 +23,37 @@ public class HospitalServiceImpl implements HospitalService {
 
     @Override
     public AddHospitalResponseDto addHospital(HospitalDto dto) {
+        if (hospitalRepository.existsByEmail(dto.getEmail())) {
 
+            throw new RuntimeException(
+                    "Hospital Email Already Exists"
+            );
+
+        }
+
+        if (hospitalRepository.existsByContactNumber(dto.getContactNumber())) {
+
+            throw new RuntimeException(
+                    "Hospital Contact Number Already Exists"
+            );
+
+        }
+
+        if (hospitalRepository.existsByRegistrationNumber(dto.getRegistrationNumber())) {
+
+            throw new RuntimeException(
+                    "Registration Number Already Exists"
+            );
+
+        }
         try {
 
             Hospital hospital = new Hospital();
-
+            hospital.setHospitalCode(generateHospitalCode(dto.getHospitalName()));
             hospital.setHospitalName(dto.getHospitalName());
             hospital.setAddress(dto.getAddress());
             hospital.setCity(dto.getCity());
             hospital.setContactNumber(dto.getContactNumber());
-
             hospital.setRegistrationNumber(dto.getRegistrationNumber());
 
             hospital.setHospitalType(dto.getHospitalType());
@@ -229,5 +250,23 @@ public class HospitalServiceImpl implements HospitalService {
         dto.setWebsite(hospital.getWebsite());
 
         return dto;
+    }
+
+    private String generateHospitalCode(String hospitalName) {
+
+        String[] words = hospitalName.trim().split("\\s+");
+
+        StringBuilder code = new StringBuilder();
+
+        for (String word : words) {
+
+            code.append(
+                    Character.toUpperCase(word.charAt(0))
+            );
+
+        }
+
+        return code.toString();
+
     }
 }

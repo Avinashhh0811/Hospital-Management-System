@@ -17,4 +17,6 @@ DoctorService {
 
     String updateDoctor(Long doctorId, DoctorDto dto);
     long doctorCount(Long hospitalId);
+    Doctor getDoctorById(Long doctorId);
+
 }

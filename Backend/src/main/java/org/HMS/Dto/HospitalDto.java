@@ -2,6 +2,10 @@ package org.HMS.Dto;
 
 public class HospitalDto {
 
+    private Long hospitalId;
+
+    private String hospitalCode;
+
     private String hospitalName;
 
     private String address;
@@ -24,6 +28,13 @@ public class HospitalDto {
 
     private boolean adminCreated;
 
+
+
+
+
+
+    public HospitalDto() {
+    }
     public Long getHospitalId() {
         return hospitalId;
     }
@@ -32,10 +43,12 @@ public class HospitalDto {
         this.hospitalId = hospitalId;
     }
 
-    private Long hospitalId;
+    public String getHospitalCode() {
+        return hospitalCode;
+    }
 
-
-    public HospitalDto() {
+    public void setHospitalCode(String hospitalCode) {
+        this.hospitalCode = hospitalCode;
     }
 
     public String getHospitalName() {

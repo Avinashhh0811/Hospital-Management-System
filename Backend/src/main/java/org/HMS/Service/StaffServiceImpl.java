@@ -22,6 +22,22 @@ public class StaffServiceImpl implements StaffService {
     @Override
     public String addStaff(StaffDto dto) {
 
+        if (staffRepository.existsByEmail(dto.getEmail())) {
+
+            throw new RuntimeException(
+                    "Staff Email Already Exists"
+            );
+
+        }
+
+        if (staffRepository.existsByPhone(dto.getPhone())) {
+
+            throw new RuntimeException(
+                    "Staff Phone Already Exists"
+            );
+
+        }
+
         Hospital hospital = hospitalRepository
                 .findById(dto.getHospitalId())
                 .orElseThrow(() ->

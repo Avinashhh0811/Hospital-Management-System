@@ -12,4 +12,8 @@ public interface StaffRepository
 
     long countByHospitalHospitalId(Long hospitalId);
 
+    boolean existsByEmail(String email);
+
+    boolean existsByPhone(String phone);
+
 }
