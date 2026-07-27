@@ -1,5 +1,6 @@
 package org.HMS.Dto;
 
+
 public class HospitalDto {
 
     private Long hospitalId;
@@ -27,10 +28,6 @@ public class HospitalDto {
     private String website;
 
     private boolean adminCreated;
-
-
-
-
 
 
     public HospitalDto() {

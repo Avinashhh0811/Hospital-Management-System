@@ -1,5 +1,7 @@
 package org.HMS.Dto;
 
+import org.HMS.Enum.DoctorStatus;
+
 public class DoctorDto {
 
     private String doctorName;
@@ -23,7 +25,7 @@ public class DoctorDto {
 
     private String opdTiming;
 
-    private boolean active = true;
+    private DoctorStatus status;
 
 
 
@@ -110,12 +112,12 @@ public class DoctorDto {
         this.opdTiming = opdTiming;
     }
 
-    public boolean isActive() {
-        return active;
+    public DoctorStatus getStatus() {
+        return status;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
+    public void setStatus(DoctorStatus status) {
+        this.status = status;
     }
 
 }

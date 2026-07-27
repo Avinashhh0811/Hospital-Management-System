@@ -1,5 +1,6 @@
 package org.HMS.Dto;
 
+
 public class AuthResponse {
 
     private String token;
@@ -9,8 +10,6 @@ public class AuthResponse {
     private String role;
 
     private Long hospitalId;
-
-
 
     private String hospitalName;
 
