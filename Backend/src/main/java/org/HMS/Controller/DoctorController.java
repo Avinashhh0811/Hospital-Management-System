@@ -73,4 +73,32 @@ public class DoctorController {
     ) {
         return doctorService.getDoctorById(doctorId);
     }
+
+    @GetMapping("/specialization")
+    public List<Doctor> getDoctorsBySpecialization(
+            @RequestParam String specialization
+    ) {
+
+        return doctorService.getDoctorsBySpecialization(
+                specialization
+        );
+
+    }
+
+    @GetMapping("/filter")
+    public List<Doctor> getDoctorsByHospitalAndSpecialization(
+
+            @RequestParam Long hospitalId,
+
+            @RequestParam String specialization
+
+    ) {
+
+        return doctorService
+                .getDoctorsByHospitalAndSpecialization(
+                        hospitalId,
+                        specialization
+                );
+
+    }
 }

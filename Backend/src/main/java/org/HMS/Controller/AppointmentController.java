@@ -80,4 +80,20 @@ public class  AppointmentController {
                         patientId
                 );
     }
+
+    @GetMapping("/available-slots")
+    public List<String> getAvailableSlots(
+
+            @RequestParam Long doctorId,
+
+            @RequestParam String appointmentDate
+
+    ) {
+
+        return appointmentService.getAvailableSlots(
+                doctorId,
+                appointmentDate
+        );
+
+    }
 }

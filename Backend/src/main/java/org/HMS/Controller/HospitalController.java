@@ -66,4 +66,50 @@ public class HospitalController {
     ){
         return hospitalService.getHospitalById(hospitalId);
     }
+
+    @GetMapping("/search")
+    public List<HospitalDto> searchHospital(
+            @RequestParam String keyword) {
+
+        return hospitalService.searchHospital(keyword);
+    }
+
+    @GetMapping("/city")
+    public List<HospitalDto> getHospitalByCity(
+            @RequestParam String city) {
+
+        return hospitalService.getHospitalByCity(city);
+    }
+
+    @GetMapping("/type")
+    public List<HospitalDto> getHospitalByType(
+            @RequestParam String type) {
+
+        return hospitalService.getHospitalByType(type);
+    }
+
+    @GetMapping("/state")
+    public List<HospitalDto> getHospitalByState(
+            @RequestParam String state
+    ) {
+
+        return hospitalService.getHospitalByState(state);
+
+    }
+
+    @GetMapping("/location")
+    public List<HospitalDto> getHospitalByStateAndCity(
+
+            @RequestParam String state,
+
+            @RequestParam String city
+
+    ) {
+
+        return hospitalService.getHospitalByStateAndCity(
+                state,
+                city
+        );
+
+    }
 }

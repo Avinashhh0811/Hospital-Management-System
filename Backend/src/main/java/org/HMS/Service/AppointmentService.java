@@ -16,4 +16,9 @@ public interface AppointmentService {
     List<Appointment> getAppointmentsByDoctor(Long doctorId);
 
     List<Appointment> getAppointmentsByPatient(Long patientId);
+
+    List<String> getAvailableSlots(
+            Long doctorId,
+            String appointmentDate
+    );
 }

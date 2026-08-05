@@ -19,4 +19,13 @@ DoctorService {
     long doctorCount(Long hospitalId);
     Doctor getDoctorById(Long doctorId);
 
+    List<Doctor> getDoctorsBySpecialization(
+            String specialization
+    );
+
+    List<Doctor> getDoctorsByHospitalAndSpecialization(
+            Long hospitalId,
+            String specialization
+    );
+
 }

@@ -74,9 +74,10 @@ function Register() {
       setOtpSent(true);
       setTimer(30);
     } catch (error) {
-      console.log(error);
-      alert("Failed To Send OTP ❌");
-    } finally {
+        console.log(error);
+
+        alert(error.response?.data || "Failed To Send OTP ❌");
+      }finally {
       setLoading(false);
     }
   };

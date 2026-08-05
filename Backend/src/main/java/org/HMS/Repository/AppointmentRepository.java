@@ -19,4 +19,9 @@ public interface AppointmentRepository
     List<Appointment> findByDoctor_DoctorId(Long doctorId);
 
     List<Appointment> findByPatient_Id(Long patientId);
+
+    List<Appointment> findByDoctor_DoctorIdAndAppointmentDate(
+            Long doctorId,
+            LocalDate appointmentDate
+    );
 }
