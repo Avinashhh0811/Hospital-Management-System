@@ -21,4 +21,17 @@ public interface AppointmentService {
             Long doctorId,
             String appointmentDate
     );
+
+    List<Appointment> getUpcomingAppointments(Long patientId);
+
+    List<Appointment> getAppointmentHistory(Long patientId);
+
+    long appointmentCount(Long patientId);
+
+    String completeAppointment(Long appointmentId);
+
+    List<Appointment> getAppointmentsByStatus(
+            String status
+    );
+
 }

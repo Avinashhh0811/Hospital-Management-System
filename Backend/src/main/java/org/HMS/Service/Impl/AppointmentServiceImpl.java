@@ -5,6 +5,7 @@ import org.HMS.Entity.Appointment;
 import org.HMS.Entity.Doctor;
 import org.HMS.Entity.Hospital;
 import org.HMS.Entity.Patient;
+import org.HMS.Enum.DoctorStatus;
 import org.HMS.Repository.AppointmentRepository;
 import org.HMS.Repository.DoctorRepository;
 import org.HMS.Repository.HospitalRepository;
@@ -47,6 +48,10 @@ public class AppointmentServiceImpl
                 .orElseThrow(() ->
                         new RuntimeException("Doctor Not Found"));
 
+        if (doctor.getStatus() != DoctorStatus.ACTIVE) {
+            return "Doctor is not available";
+        }
+
         Hospital hospital = hospitalRepository
                 .findById(dto.getHospitalId())
                 .orElseThrow(() ->
@@ -55,8 +60,18 @@ public class AppointmentServiceImpl
         LocalDate date =
                 LocalDate.parse(dto.getAppointmentDate());
 
+        if (date.isBefore(LocalDate.now())) {
+            return "Past Date Appointment Not Allowed";
+        }
+
         LocalTime time =
                 LocalTime.parse(dto.getAppointmentTime());
+
+        if (date.equals(LocalDate.now())
+                && time.isBefore(LocalTime.now())) {
+
+            return "Selected Time Already Passed";
+        }
 
         boolean alreadyBooked =
                 appointmentRepository
@@ -178,5 +193,60 @@ public class AppointmentServiceImpl
         }
 
         return availableSlots;
+    }
+
+    @Override
+    public List<Appointment> getUpcomingAppointments(Long patientId) {
+
+        return appointmentRepository
+                .findByPatient_IdAndAppointmentDateGreaterThanEqual(
+                        patientId,
+                        LocalDate.now()
+                );
+    }
+
+    @Override
+    public List<Appointment> getAppointmentHistory(Long patientId) {
+
+        return appointmentRepository
+                .findByPatient_IdAndAppointmentDateLessThan(
+                        patientId,
+                        LocalDate.now()
+                );
+    }
+
+    @Override
+    public long appointmentCount(Long patientId) {
+
+        return appointmentRepository
+                .countByPatient_Id(patientId);
+
+    }
+
+    @Override
+    public String completeAppointment(Long appointmentId) {
+
+        Appointment appointment =
+                appointmentRepository.findById(appointmentId)
+                        .orElseThrow(() ->
+                                new RuntimeException(
+                                        "Appointment Not Found"
+                                ));
+
+        appointment.setStatus("COMPLETED");
+
+        appointmentRepository.save(appointment);
+
+        return "Appointment Completed Successfully";
+    }
+
+    @Override
+    public List<Appointment> getAppointmentsByStatus(
+            String status
+    ) {
+
+        return appointmentRepository
+                .findByStatus(status);
+
     }
 }

@@ -96,4 +96,56 @@ public class  AppointmentController {
         );
 
     }
+
+    @GetMapping("/upcoming/{patientId}")
+    public List<Appointment> getUpcomingAppointments(
+            @PathVariable Long patientId
+    ) {
+
+        return appointmentService
+                .getUpcomingAppointments(patientId);
+
+    }
+
+    @GetMapping("/history/{patientId}")
+    public List<Appointment> getAppointmentHistory(
+            @PathVariable Long patientId
+    ) {
+
+        return appointmentService
+                .getAppointmentHistory(patientId);
+
+    }
+
+    @GetMapping("/count/{patientId}")
+    public long appointmentCount(
+            @PathVariable Long patientId
+    ) {
+
+        return appointmentService
+                .appointmentCount(patientId);
+
+    }
+
+    @PutMapping("/complete/{appointmentId}")
+    public String completeAppointment(
+            @PathVariable Long appointmentId
+    ) {
+
+        return appointmentService
+                .completeAppointment(appointmentId);
+
+    }
+
+    @GetMapping("/status")
+    public List<Appointment> getAppointmentsByStatus(
+
+            @RequestParam String status
+
+    ) {
+
+        return appointmentService
+                .getAppointmentsByStatus(status);
+
+    }
 }

@@ -24,4 +24,18 @@ public interface AppointmentRepository
             Long doctorId,
             LocalDate appointmentDate
     );
+
+    List<Appointment> findByPatient_IdAndAppointmentDateGreaterThanEqual(
+            Long patientId,
+            LocalDate appointmentDate
+    );
+
+    List<Appointment> findByPatient_IdAndAppointmentDateLessThan(
+            Long patientId,
+            LocalDate appointmentDate
+    );
+
+    long countByPatient_Id(Long patientId);
+
+    List<Appointment> findByStatus(String status);
 }
