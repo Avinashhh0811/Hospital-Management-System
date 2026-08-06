@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="655e44db-d26d-404d-9e49-e4d3411390c9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Controller/AppointmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Repository/AppointmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Repository/AppointmentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/AppointmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/Impl/AppointmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/Impl/AppointmentServiceImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="655e44db-d26d-404d-9e49-e4d3411390c9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
