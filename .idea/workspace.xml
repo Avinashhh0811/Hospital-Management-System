@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="655e44db-d26d-404d-9e49-e4d3411390c9" name="Changes" comment="" />
+    <list default="true" id="655e44db-d26d-404d-9e49-e4d3411390c9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Controller/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Controller/StaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Controller/StaffController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Repository/DoctorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Repository/DoctorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Repository/StaffRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Repository/StaffRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/Impl/AppointmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/Impl/AppointmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/Impl/DoctorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/Impl/DoctorServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/Impl/PatientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/Impl/PatientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/Impl/StaffServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/Impl/StaffServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/PatientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/StaffService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/org/HMS/Service/StaffService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

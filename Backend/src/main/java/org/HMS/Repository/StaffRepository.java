@@ -16,4 +16,6 @@ public interface StaffRepository
 
     boolean existsByPhone(String phone);
 
+    List<Staff> findByHospitalHospitalIdAndActiveTrue(Long hospitalId);
+
 }

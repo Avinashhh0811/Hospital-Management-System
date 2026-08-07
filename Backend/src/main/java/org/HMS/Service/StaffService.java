@@ -11,6 +11,9 @@ public interface StaffService {
 
     List<Staff> getAllStaff();
 
+    Staff getStaffById(Long staffId);
+
+
     List<Staff> getStaffByHospital(Long hospitalId);
 
     String updateStaff(Long staffId, StaffDto dto);

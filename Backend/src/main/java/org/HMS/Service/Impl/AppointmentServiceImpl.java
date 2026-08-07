@@ -57,7 +57,12 @@ public class AppointmentServiceImpl
                 .orElseThrow(() ->
                         new RuntimeException("Hospital Not Found"));
 
-        LocalDate date =
+        if (!doctor.getHospital().getHospitalId().equals(hospital.getHospitalId())) {
+
+            return "Selected doctor does not belong to selected hospital";
+        }
+
+            LocalDate date =
                 LocalDate.parse(dto.getAppointmentDate());
 
         if (date.isBefore(LocalDate.now())) {

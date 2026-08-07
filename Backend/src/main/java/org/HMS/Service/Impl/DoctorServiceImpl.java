@@ -14,6 +14,14 @@ import java.util.List;
 @Service
 public class DoctorServiceImpl
         implements DoctorService {
+
+
+    @Autowired
+    private DoctorRepository doctorRepository;
+
+    @Autowired
+    private HospitalRepository hospitalRepository;
+
     @Override
     public List<Doctor> getDoctorsByHospital(Long hospitalId) {
 
@@ -21,11 +29,6 @@ public class DoctorServiceImpl
                 .findByHospitalHospitalId(hospitalId);
     }
 
-    @Autowired
-    private DoctorRepository doctorRepository;
-
-    @Autowired
-    private HospitalRepository hospitalRepository;
 
     @Override
     public long doctorCount(Long hospitalId){

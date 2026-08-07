@@ -129,4 +129,13 @@ public class StaffServiceImpl implements StaffService {
                 .countByHospitalHospitalId(hospitalId);
     }
 
+    @Override
+    public Staff getStaffById(Long staffId) {
+
+        return staffRepository.findById(staffId)
+                .orElseThrow(() ->
+                        new RuntimeException("Staff Not Found"));
+
+    }
+
 }
