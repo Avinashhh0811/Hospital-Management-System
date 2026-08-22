@@ -1,7 +1,7 @@
 package org.HMS.Service;
 
-import org.HMS.Dto.CreateHospitalAdminDto;
-import org.HMS.Dto.HospitalAdminDto;
+import org.HMS.Dto.Hospital.CreateHospitalAdminDto;
+import org.HMS.Dto.Hospital.HospitalAdminDto;
 
 import java.util.List;
 

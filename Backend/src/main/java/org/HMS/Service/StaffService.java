@@ -1,6 +1,6 @@
 package org.HMS.Service;
 
-import org.HMS.Dto.StaffDto;
+import org.HMS.Dto.Staff.StaffDto;
 import org.HMS.Entity.Staff;
 
 import java.util.List;

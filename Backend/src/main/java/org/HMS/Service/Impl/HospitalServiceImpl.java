@@ -1,7 +1,7 @@
 package org.HMS.Service.Impl;
 
-import org.HMS.Dto.AddHospitalResponseDto;
-import org.HMS.Dto.HospitalDto;
+import org.HMS.Dto.Hospital.AddHospitalResponseDto;
+import org.HMS.Dto.Hospital.HospitalDto;
 import org.HMS.Entity.Hospital;
 import org.HMS.Repository.HospitalRepository;
 import org.HMS.Repository.UserRepository;

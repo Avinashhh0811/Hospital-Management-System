@@ -1,6 +1,6 @@
 package org.HMS.Controller;
 
-import org.HMS.Dto.AppointmentDto;
+import org.HMS.Dto.Appointment.AppointmentDto;
 import org.HMS.Entity.Appointment;
 import org.HMS.Service.AppointmentService;
 

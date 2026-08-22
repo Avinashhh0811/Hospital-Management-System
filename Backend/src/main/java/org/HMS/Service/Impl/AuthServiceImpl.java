@@ -1,9 +1,9 @@
 package org.HMS.Service.Impl;
 
-import org.HMS.Dto.AuthResponse;
-import org.HMS.Dto.LoginRequestDto;
-import org.HMS.Dto.OtpRequest;
-import org.HMS.Dto.VerifyOtpRequest;
+import org.HMS.Dto.Auth.AuthResponse;
+import org.HMS.Dto.Auth.LoginRequestDto;
+import org.HMS.Dto.Auth.OtpRequest;
+import org.HMS.Dto.Auth.VerifyOtpRequest;
 import org.HMS.Entity.Patient;
 import org.HMS.Entity.Role;
 import org.HMS.Entity.User;
@@ -12,7 +12,6 @@ import org.HMS.Repository.RoleRepository;
 import org.HMS.Repository.UserRepository;
 import org.HMS.Security.JwtService;
 import org.HMS.Service.AuthService;
-import org.HMS.Service.OtpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package org.HMS.Controller;
 
-import org.HMS.Dto.ReportDto;
+import org.HMS.Dto.Report.ReportDto;
 import org.HMS.Entity.Report;
 import org.HMS.Service.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;

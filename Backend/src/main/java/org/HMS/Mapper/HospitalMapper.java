@@ -1,6 +1,6 @@
 package org.HMS.Mapper;
 
-import org.HMS.Dto.HospitalDto;
+import org.HMS.Dto.Hospital.HospitalDto;
 import org.HMS.Entity.Hospital;
 
 public class HospitalMapper {
@@ -32,9 +32,14 @@ public class HospitalMapper {
 
         dto.setHospitalId(hospital.getHospitalId());
         dto.setHospitalName(hospital.getHospitalName());
+        dto.setHospitalType(hospital.getHospitalType());
         dto.setCity(hospital.getCity());
+        dto.setState(hospital.getState());
         dto.setAddress(hospital.getAddress());
+        dto.setPincode(hospital.getPincode());
         dto.setContactNumber(hospital.getContactNumber());
+        dto.setEmail(hospital.getEmail());
+        dto.setWebsite(hospital.getWebsite());
         dto.setAdminCreated(adminCreated);
 
         return dto;

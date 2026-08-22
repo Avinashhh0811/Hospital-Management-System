@@ -1,6 +1,6 @@
 package org.HMS.Mapper;
 
-import org.HMS.Dto.DoctorDto;
+import org.HMS.Dto.Doctor.DoctorDto;
 import org.HMS.Entity.Doctor;
 
 public class DoctorMapper {

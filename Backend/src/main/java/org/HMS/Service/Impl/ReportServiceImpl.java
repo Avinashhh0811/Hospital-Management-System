@@ -1,6 +1,6 @@
 package org.HMS.Service.Impl;
 
-import org.HMS.Dto.ReportDto;
+import org.HMS.Dto.Report.ReportDto;
 import org.HMS.Entity.*;
 import org.HMS.Repository.*;
 import org.HMS.Service.ReportService;

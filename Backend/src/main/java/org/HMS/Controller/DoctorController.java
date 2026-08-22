@@ -1,6 +1,6 @@
 package org.HMS.Controller;
 
-import org.HMS.Dto.DoctorDto;
+import org.HMS.Dto.Doctor.DoctorDto;
 import org.HMS.Entity.Doctor;
 import org.HMS.Service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;

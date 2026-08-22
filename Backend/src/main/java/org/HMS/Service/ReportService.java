@@ -1,6 +1,6 @@
 package org.HMS.Service;
 
-import org.HMS.Dto.ReportDto;
+import org.HMS.Dto.Report.ReportDto;
 import org.HMS.Entity.Report;
 import org.springframework.web.multipart.MultipartFile;
 

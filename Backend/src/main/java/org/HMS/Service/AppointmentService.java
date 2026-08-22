@@ -1,6 +1,6 @@
 package org.HMS.Service;
 
-import org.HMS.Dto.AppointmentDto;
+import org.HMS.Dto.Appointment.AppointmentDto;
 import org.HMS.Entity.Appointment;
 
 import java.util.List;

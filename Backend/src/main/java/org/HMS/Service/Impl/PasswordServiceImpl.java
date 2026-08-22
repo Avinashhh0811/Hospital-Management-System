@@ -1,10 +1,9 @@
 package org.HMS.Service.Impl;
 
-import org.HMS.Dto.EmailRequest;
-import org.HMS.Dto.ResetPasswordRequest;
+import org.HMS.Dto.Auth.EmailRequest;
+import org.HMS.Dto.Auth.ResetPasswordRequest;
 import org.HMS.Entity.User;
 import org.HMS.Repository.UserRepository;
-import org.HMS.Service.OtpService;
 import org.HMS.Service.PasswordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

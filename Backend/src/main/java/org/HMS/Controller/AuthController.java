@@ -1,9 +1,8 @@
 package org.HMS.Controller;
 
-import org.HMS.Dto.*;
-
+import org.HMS.Dto.Auth.*;
 import org.HMS.Repository.UserRepository;
-import org.HMS.Service.OtpService;
+import org.HMS.Service.Impl.OtpService;
 
 import org.HMS.Service.AuthService;
 

@@ -1,7 +1,7 @@
 package org.HMS.Controller;
 
-import org.HMS.Dto.CreateHospitalAdminDto;
-import org.HMS.Dto.HospitalAdminDto;
+import org.HMS.Dto.Hospital.CreateHospitalAdminDto;
+import org.HMS.Dto.Hospital.HospitalAdminDto;
 import org.HMS.Service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

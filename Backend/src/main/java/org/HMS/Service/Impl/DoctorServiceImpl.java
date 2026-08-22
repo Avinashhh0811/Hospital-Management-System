@@ -1,6 +1,6 @@
 package org.HMS.Service.Impl;
 
-import org.HMS.Dto.DoctorDto;
+import org.HMS.Dto.Doctor.DoctorDto;
 import org.HMS.Entity.Doctor;
 import org.HMS.Entity.Hospital;
 import org.HMS.Repository.DoctorRepository;

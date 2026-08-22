@@ -1,7 +1,7 @@
 package org.HMS.Service;
 
-import org.HMS.Dto.EmailRequest;
-import org.HMS.Dto.ResetPasswordRequest;
+import org.HMS.Dto.Auth.EmailRequest;
+import org.HMS.Dto.Auth.ResetPasswordRequest;
 
 public interface PasswordService {
 

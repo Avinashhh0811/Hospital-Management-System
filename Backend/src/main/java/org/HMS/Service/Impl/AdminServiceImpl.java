@@ -1,6 +1,6 @@
 package org.HMS.Service.Impl;
 
-import org.HMS.Dto.CreateHospitalAdminDto;
+import org.HMS.Dto.Hospital.CreateHospitalAdminDto;
 import org.HMS.Entity.Hospital;
 import org.HMS.Entity.Role;
 import org.HMS.Entity.User;
@@ -11,7 +11,7 @@ import org.HMS.Service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.HMS.Dto.HospitalAdminDto;
+import org.HMS.Dto.Hospital.HospitalAdminDto;
 
 import java.util.ArrayList;
 import java.util.List;

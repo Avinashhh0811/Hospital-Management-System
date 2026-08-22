@@ -1,6 +1,6 @@
 package org.HMS.Controller;
 
-import org.HMS.Dto.StaffDto;
+import org.HMS.Dto.Staff.StaffDto;
 import org.HMS.Entity.Staff;
 import org.HMS.Service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
