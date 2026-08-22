@@ -1,0 +1,316 @@
+.hospital-admins-page {
+  min-height: 100vh;
+
+  padding: 35px;
+
+  background: #f5f7fb;
+
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  color: #172033;
+}
+
+
+/* ===============================
+   HEADER
+================================ */
+
+.hospital-admins-header {
+  max-width: 1100px;
+
+  margin: 0 auto 25px;
+}
+
+
+.admins-back-button {
+  height: 38px;
+
+  padding: 0 15px;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #475569;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+.admins-back-button:hover {
+  border-color: #2563eb;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+}
+
+
+.hospital-admins-header h1 {
+  margin: 22px 0 6px;
+
+  font-size: 28px;
+
+  font-weight: 750;
+}
+
+
+.hospital-admins-header p {
+  margin: 0;
+
+  color: #7183a1;
+
+  font-size: 14px;
+}
+
+
+/* ===============================
+   CARD
+================================ */
+
+.hospital-admins-card {
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  min-height: 300px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5eaf0;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 2px 8px rgba(15, 23, 42, 0.03);
+
+  overflow: hidden;
+}
+
+
+/* ===============================
+   TABLE
+================================ */
+
+.admins-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+
+.admins-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 700px;
+}
+
+
+.admins-table th {
+  padding: 16px 20px;
+
+  text-align: left;
+
+  background: #f8fafc;
+
+  border-bottom: 1px solid #e5eaf0;
+
+  color: #64748b;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+
+.admins-table td {
+  padding: 18px 20px;
+
+  border-bottom: 1px solid #edf1f5;
+
+  color: #475569;
+
+  font-size: 14px;
+}
+
+
+.admins-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+.admins-table tbody tr:hover {
+  background: #fafcff;
+}
+
+
+.admins-table td strong {
+  color: #172033;
+
+  font-size: 14px;
+}
+
+
+/* ===============================
+   STATUS
+================================ */
+
+.admin-status {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 6px 11px;
+
+  border-radius: 20px;
+
+  background: #ecfdf5;
+
+  color: #059669;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* ===============================
+   DELETE
+================================ */
+
+.delete-admin-button {
+  padding: 7px 13px;
+
+  border: 1px solid #fecaca;
+
+  border-radius: 7px;
+
+  background: #fff;
+
+  color: #dc2626;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+.delete-admin-button:hover {
+  background: #fef2f2;
+
+  border-color: #fca5a5;
+}
+
+
+/* ===============================
+   EMPTY / LOADING
+================================ */
+
+.admins-empty,
+.admins-message,
+.admins-error {
+  min-height: 300px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 40px;
+}
+
+
+.empty-admins-icon {
+  width: 55px;
+  height: 55px;
+
+  margin-bottom: 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #f5f3ff;
+
+  color: #7c3aed;
+
+  font-size: 23px;
+}
+
+
+.admins-empty h2 {
+  margin: 0 0 7px;
+
+  font-size: 18px;
+}
+
+
+.admins-empty p {
+  margin: 0;
+
+  color: #91a0b7;
+
+  font-size: 13px;
+}
+
+
+.admins-message {
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+
+.admins-error {
+  color: #dc2626;
+
+  font-size: 14px;
+}
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 700px) {
+
+  .hospital-admins-page {
+    padding: 20px 12px;
+  }
+
+
+  .hospital-admins-header h1 {
+    font-size: 24px;
+  }
+
+}

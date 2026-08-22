@@ -1,0 +1,413 @@
+/* =========================================
+   HOSPITAL DETAILS
+========================================= */
+
+.hospital-details-page {
+    min-height: 100vh;
+  
+    padding: 35px;
+  
+    background: #f5f7fb;
+  
+    color: #172033;
+  
+    font-family:
+      Inter,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+  }
+  
+  
+  /* =========================================
+     HEADER
+  ========================================= */
+  
+  .details-header {
+    max-width: 1100px;
+  
+    margin: 0 auto 25px;
+  }
+  
+  .back-button {
+    height: 38px;
+  
+    padding: 0 14px;
+  
+    border: 1px solid #dbe2ea;
+  
+    border-radius: 8px;
+  
+    background: #ffffff;
+  
+    color: #475569;
+  
+    font-family: inherit;
+  
+    font-size: 12px;
+  
+    font-weight: 600;
+  
+    cursor: pointer;
+  
+    transition: 0.2s ease;
+  }
+  
+  .back-button:hover {
+    border-color: #2563eb;
+  
+    background: #eff6ff;
+  
+    color: #2563eb;
+  }
+  
+  
+  .details-title {
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 16px;
+  
+    margin-top: 25px;
+  }
+  
+  .details-icon {
+    width: 58px;
+    height: 58px;
+  
+    display: flex;
+  
+    align-items: center;
+    justify-content: center;
+  
+    border-radius: 13px;
+  
+    background: #eff6ff;
+  
+    border: 1px solid #dbeafe;
+  
+    font-size: 25px;
+  }
+  
+  .details-title h1 {
+    margin: 0;
+  
+    color: #172033;
+  
+    font-size: 27px;
+  
+    font-weight: 750;
+  }
+  
+  .details-title p {
+    margin: 6px 0 0;
+  
+    color: #7c8da8;
+  
+    font-size: 13px;
+  }
+  
+  
+  /* =========================================
+     CARD
+  ========================================= */
+  
+  .details-card {
+    max-width: 1100px;
+  
+    margin: 0 auto 20px;
+  
+    background: #ffffff;
+  
+    border: 1px solid #e5eaf0;
+  
+    border-radius: 14px;
+  
+    overflow: hidden;
+  
+    box-shadow:
+      0 2px 8px rgba(15, 23, 42, 0.03);
+  }
+  
+  .details-card-header {
+    min-height: 75px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: space-between;
+  
+    gap: 20px;
+  
+    padding: 20px 25px;
+  
+    border-bottom: 1px solid #edf0f4;
+  }
+  
+  .details-card-header h2 {
+    margin: 0;
+  
+    color: #172033;
+  
+    font-size: 18px;
+  
+    font-weight: 700;
+  }
+  
+  .details-card-header p {
+    margin: 5px 0 0;
+  
+    color: #91a0b7;
+  
+    font-size: 12px;
+  }
+  
+  
+  /* =========================================
+     STATUS
+  ========================================= */
+  
+  .details-status {
+    display: inline-flex;
+  
+    align-items: center;
+  
+    padding: 7px 11px;
+  
+    border-radius: 20px;
+  
+    font-size: 11px;
+  
+    font-weight: 650;
+  
+    white-space: nowrap;
+  }
+  
+  .details-status.created {
+    background: #ecfdf5;
+  
+    color: #059669;
+  }
+  
+  .details-status.pending {
+    background: #fff7ed;
+  
+    color: #ea580c;
+  }
+  
+  
+  /* =========================================
+     DETAILS GRID
+  ========================================= */
+  
+  .details-grid {
+    display: grid;
+  
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  
+    gap: 0;
+  
+    padding: 5px 25px 20px;
+  }
+  
+  .address-grid {
+    display: grid;
+  
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  
+    gap: 0;
+  
+    padding: 5px 25px 20px;
+  }
+  
+  .detail-item {
+    padding: 17px 10px;
+  
+    border-bottom: 1px solid #f0f2f5;
+  }
+  
+  .detail-item:nth-child(odd) {
+    padding-left: 0;
+  }
+  
+  .detail-item:nth-child(even) {
+    padding-right: 0;
+  }
+  
+  .detail-item span {
+    display: block;
+  
+    margin-bottom: 6px;
+  
+    color: #91a0b7;
+  
+    font-size: 11px;
+  
+    font-weight: 500;
+  }
+  
+  .detail-item strong {
+    display: block;
+  
+    color: #334155;
+  
+    font-size: 13px;
+  
+    font-weight: 600;
+  
+    word-break: break-word;
+  }
+  
+  
+  /* =========================================
+     ADMIN STATUS BOX
+  ========================================= */
+  
+  .admin-status-box {
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 15px;
+  
+    margin: 20px 25px;
+  
+    padding: 18px;
+  
+    border-radius: 10px;
+  
+    background: #f8fafc;
+  
+    border: 1px solid #edf0f4;
+  }
+  
+  .admin-status-icon {
+    width: 42px;
+    height: 42px;
+  
+    flex-shrink: 0;
+  
+    display: flex;
+  
+    align-items: center;
+    justify-content: center;
+  
+    border-radius: 10px;
+  
+    font-size: 17px;
+  
+    font-weight: 700;
+  }
+  
+  .admin-status-icon.created {
+    background: #ecfdf5;
+  
+    color: #059669;
+  }
+  
+  .admin-status-icon.pending {
+    background: #fff7ed;
+  
+    color: #ea580c;
+  }
+  
+  .admin-status-box strong {
+    display: block;
+  
+    color: #334155;
+  
+    font-size: 13px;
+  }
+  
+  .admin-status-box p {
+    margin: 4px 0 0;
+  
+    color: #91a0b7;
+  
+    font-size: 12px;
+  }
+  
+  
+  /* =========================================
+     LOADING / ERROR
+  ========================================= */
+  
+  .details-loading {
+    min-height: 70vh;
+  
+    display: flex;
+  
+    align-items: center;
+    justify-content: center;
+  
+    color: #7183a1;
+  
+    font-size: 14px;
+  }
+  
+  .details-error {
+    max-width: 600px;
+  
+    margin: 120px auto;
+  
+    padding: 35px;
+  
+    text-align: center;
+  
+    background: #ffffff;
+  
+    border: 1px solid #e5eaf0;
+  
+    border-radius: 14px;
+  }
+  
+  .details-error h2 {
+    margin: 0;
+  
+    color: #172033;
+  }
+  
+  .details-error p {
+    color: #7183a1;
+  
+    font-size: 13px;
+  
+    margin: 8px 0 22px;
+  }
+  
+  
+  /* =========================================
+     RESPONSIVE
+  ========================================= */
+  
+  @media (max-width: 700px) {
+  
+    .hospital-details-page {
+      padding: 20px 12px;
+    }
+  
+    .details-grid,
+    .address-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .detail-item:nth-child(even) {
+      padding-left: 0;
+    }
+  
+    .detail-item:nth-child(odd) {
+      padding-right: 0;
+    }
+  
+    .details-card-header {
+      align-items: flex-start;
+  
+      flex-direction: column;
+    }
+  
+  }

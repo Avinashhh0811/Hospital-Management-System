@@ -1,0 +1,426 @@
+/* ================================
+   ADD HOSPITAL PAGE
+================================ */
+
+.add-hospital-page {
+    min-height: 100vh;
+    background: #f5f7fb;
+    padding: 35px;
+    box-sizing: border-box;
+  }
+  
+  
+  /* ================================
+     MAIN CONTAINER
+  ================================ */
+  
+  .add-hospital-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  
+  /* ================================
+     HEADER
+  ================================ */
+  
+  .add-hospital-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .add-hospital-header h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    color: #172033;
+  }
+  
+  .add-hospital-header p {
+    margin-top: 7px;
+    margin-bottom: 0;
+    color: #6b7280;
+    font-size: 14px;
+  }
+  
+  
+  /* ================================
+     BACK BUTTON
+  ================================ */
+  
+  .back-button {
+    border: none;
+    background: #ffffff;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+  
+    padding: 11px 18px;
+    border-radius: 8px;
+  
+    font-size: 14px;
+    font-weight: 600;
+  
+    cursor: pointer;
+  
+    transition: all 0.2s ease;
+  }
+  
+  .back-button:hover {
+    background: #eef4ff;
+    color: #2563eb;
+    border-color: #2563eb;
+  }
+  
+  
+  /* ================================
+     FORM
+  ================================ */
+  
+  .add-hospital-form {
+    background: #ffffff;
+  
+    border-radius: 14px;
+  
+    border: 1px solid #e7eaf0;
+  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  
+    overflow: hidden;
+  }
+  
+  
+  /* ================================
+     FORM SECTION
+  ================================ */
+  
+  .form-section {
+    padding: 28px 32px;
+  
+    border-bottom: 1px solid #edf0f4;
+  }
+  
+  .form-section:last-of-type {
+    border-bottom: none;
+  }
+  
+  .form-section h2 {
+    margin: 0 0 22px 0;
+  
+    font-size: 18px;
+    font-weight: 650;
+  
+    color: #1f2937;
+  }
+  
+  
+  /* ================================
+     FORM GRID
+  ================================ */
+  
+  .form-grid {
+    display: grid;
+  
+    grid-template-columns: repeat(2, 1fr);
+  
+    gap: 20px;
+  }
+  
+  
+  /* ================================
+     FORM FIELD
+  ================================ */
+  
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-field.full-width {
+    grid-column: span 2;
+  }
+  
+  .form-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+  }
+  
+  
+  /* ================================
+     INPUTS
+  ================================ */
+  
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    width: 100%;
+  
+    box-sizing: border-box;
+  
+    border: 1px solid #d9dee7;
+  
+    background: #ffffff;
+  
+    border-radius: 8px;
+  
+    padding: 12px 14px;
+  
+    font-size: 14px;
+  
+    color: #1f2937;
+  
+    outline: none;
+  
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  
+  .form-field input {
+    height: 44px;
+  }
+  
+  .form-field select {
+    height: 44px;
+  
+    cursor: pointer;
+  }
+  
+  .form-field textarea {
+    resize: vertical;
+  
+    min-height: 90px;
+  
+    font-family: inherit;
+  }
+  
+  
+  /* ================================
+     PLACEHOLDER
+  ================================ */
+  
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: #9ca3af;
+  }
+  
+  
+  /* ================================
+     FOCUS
+  ================================ */
+  
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    border-color: #2563eb;
+  
+    box-shadow:
+      0 0 0 3px rgba(37, 99, 235, 0.10);
+  }
+  
+  
+  /* ================================
+     ERROR
+  ================================ */
+  
+  .form-error {
+    margin: 0 32px 20px;
+  
+    padding: 12px 15px;
+  
+    background: #fff1f2;
+  
+    border: 1px solid #fecdd3;
+  
+    color: #be123c;
+  
+    border-radius: 8px;
+  
+    font-size: 14px;
+  }
+  
+  
+  /* ================================
+     SUCCESS
+  ================================ */
+  
+  .form-success {
+    margin: 0 32px 20px;
+  
+    padding: 12px 15px;
+  
+    background: #ecfdf5;
+  
+    border: 1px solid #a7f3d0;
+  
+    color: #047857;
+  
+    border-radius: 8px;
+  
+    font-size: 14px;
+  }
+  
+  
+  /* ================================
+     FORM ACTIONS
+  ================================ */
+  
+  .form-actions {
+    display: flex;
+  
+    justify-content: flex-end;
+  
+    align-items: center;
+  
+    gap: 12px;
+  
+    padding: 22px 32px;
+  
+    background: #fafbfc;
+  
+    border-top: 1px solid #edf0f4;
+  }
+  
+  
+  /* ================================
+     CANCEL BUTTON
+  ================================ */
+  
+  .cancel-button {
+    height: 44px;
+  
+    padding: 0 22px;
+  
+    border-radius: 8px;
+  
+    border: 1px solid #d9dee7;
+  
+    background: #ffffff;
+  
+    color: #374151;
+  
+    font-size: 14px;
+  
+    font-weight: 600;
+  
+    cursor: pointer;
+  
+    transition: all 0.2s ease;
+  }
+  
+  .cancel-button:hover {
+    background: #f3f4f6;
+  }
+  
+  
+  /* ================================
+     SAVE BUTTON
+  ================================ */
+  
+  .save-button {
+    height: 44px;
+  
+    padding: 0 24px;
+  
+    border-radius: 8px;
+  
+    border: none;
+  
+    background: #2563eb;
+  
+    color: #ffffff;
+  
+    font-size: 14px;
+  
+    font-weight: 600;
+  
+    cursor: pointer;
+  
+    transition: all 0.2s ease;
+  }
+  
+  .save-button:hover {
+    background: #1d4ed8;
+  
+    transform: translateY(-1px);
+  }
+  
+  .save-button:disabled {
+    background: #93c5fd;
+  
+    cursor: not-allowed;
+  
+    transform: none;
+  }
+  
+  
+  /* ================================
+     RESPONSIVE
+  ================================ */
+  
+  @media (max-width: 768px) {
+  
+    .add-hospital-page {
+      padding: 20px;
+    }
+  
+    .add-hospital-header {
+      align-items: flex-start;
+  
+      gap: 15px;
+    }
+  
+    .add-hospital-header h1 {
+      font-size: 25px;
+    }
+  
+    .form-section {
+      padding: 22px;
+    }
+  
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .form-field.full-width {
+      grid-column: span 1;
+    }
+  
+    .form-actions {
+      padding: 18px 22px;
+    }
+  
+  }
+  
+  
+  @media (max-width: 480px) {
+  
+    .add-hospital-page {
+      padding: 14px;
+    }
+  
+    .add-hospital-header {
+      flex-direction: column;
+    }
+  
+    .back-button {
+      width: 100%;
+    }
+  
+    .form-section {
+      padding: 18px;
+    }
+  
+    .form-actions {
+      flex-direction: column-reverse;
+    }
+  
+    .cancel-button,
+    .save-button {
+      width: 100%;
+    }
+  
+  }
